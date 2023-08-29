@@ -1,0 +1,87 @@
+[alias]
+  # Add
+  add-all = add --all
+  add-all-tracked = add --update
+
+  # Branch Create/Delete/Switch
+  bc = switch --create
+  bd = branch --delete
+  bs = switch
+
+  # Diff
+  d = difftool HEAD
+  d-all = difftool --dir-diff HEAD
+
+  # Graph
+  g = log --graph --abbrev-commit --pretty=oneline
+  g-all = g --all
+  g-full = log --graph --pretty=fuller
+  g-full-all = g-full --all
+
+  # Log
+  l = log --abbrev-commit --pretty=oneline
+  l-full = log --pretty=fuller
+
+  # Pending
+  p = difftool --dir-diff --cached
+
+  # Resolve
+  resolve = mergetool
+
+  # Remove
+  rem = restore --staged
+  rem-all = reset
+
+  # Status
+  s = status
+
+  # Submit
+  submit = push --recurse-submodules=on-demand
+
+  # Sync
+  sync = pull --rebase --prune --recurse-submodules
+
+
+[commit]
+  gpgSign = true
+
+
+[core]
+  editor = vim
+  pager = delta
+
+
+[delta]
+  light = false
+  navigate = true
+  side-by-side = true
+
+
+[diff]
+  tool = meld
+
+
+[difftool "meld"]
+  cmd = meld "${LOCAL}" "${REMOTE}"
+
+
+[gpg]
+  format = ssh
+
+
+[init]
+  defaultBranch = main
+
+
+[merge]
+  tool = meld
+
+
+[mergetool "meld"]
+  cmd = meld "${LOCAL}" "${BASE}" "${REMOTE}" --output "${MERGED}"
+
+
+[user]
+  email = timzwiebel@gmail.com
+  name = Tim Zwiebel
+  signingkey = /home/timzwiebel/.ssh/id_ed25519.pub
