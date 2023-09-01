@@ -79,3 +79,10 @@ alias pacman-update='pacman --sync --refresh --sysupgrade'
 #   \[\e[00m\]     <reset>
 #   \n>            \n> (literal)
 PS1='$(if [[ "$?" == "0" ]]; then echo -n "\[\e[32m\][$?]"; else echo -n "\[\e[01;31m\][$?]"; fi)\[\e[00m\]\n\n\[\e[01;34m\]\u@\h\[\e[00m\]:\[\e[01;36m\]\w\[\e[00m\]\[\e[01;35m\]$(git branch --no-color 2>/dev/null | sed -e "/^[^*]/d" -e "s|* \(.*\)| (\1)|")\[\e[00m\]\n> '
+
+
+# Workaround for VS Code bug present in v1.81.1.
+# https://github.com/microsoft/vscode/issues/185324
+if [[ "${TERM_PROGRAM-}" == 'vscode' ]]; then
+  set +o nounset
+fi
