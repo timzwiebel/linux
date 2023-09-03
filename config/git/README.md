@@ -108,9 +108,10 @@ simplified by using aliases.
   add-all = add --all
   add-all-tracked = add --update
 
-  # Branch Create/Delete/Switch
+  # Branch Create/Delete/List/Switch
   bc = switch --create
   bd = branch --delete
+  bl = branch
   bs = switch
 
   # Diff
@@ -185,6 +186,11 @@ git bs <branch>  # git switch <branch>
 #### Create a new branch (and switch to it)
 ```shell
 git bc <branch>  # git switch --create <branch>
+```
+
+#### List all branches
+```shell
+git bl  # git branch
 ```
 
 #### Delete a branch

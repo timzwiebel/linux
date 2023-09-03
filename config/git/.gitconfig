@@ -3,9 +3,10 @@
   add-all = add --all
   add-all-tracked = add --update
 
-  # Branch Create/Delete/Switch
+  # Branch Create/Delete/List/Switch
   bc = switch --create
   bd = branch --delete
+  bl = branch
   bs = switch
 
   # Diff
