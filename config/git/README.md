@@ -118,6 +118,10 @@ simplified by using aliases.
   d = difftool HEAD
   d-all = difftool --dir-diff HEAD
 
+  # Discard Changes
+  discard = restore
+  discard-all = !git restore .
+
   # Graph
   g = log --graph --abbrev-commit --pretty=oneline
   g-all = g --all
@@ -252,6 +256,16 @@ git bd <branch>  # git branch --delete <branch>
 - Unstage **all files** for commit:
   ```shell
   git rem-all  # git reset
+  ```
+
+### Discarding changes
+- Discard changes to a file:
+  ```shell
+  git discard <file> [<file> ...]  # git restore <file> [<file> ...]
+  ```
+- Discard all changes (to the current directory):
+  ```shell
+  git discard-all  # git restore .
   ```
 
 ### Diffing changes

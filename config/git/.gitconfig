@@ -13,6 +13,10 @@
   d = difftool HEAD
   d-all = difftool --dir-diff HEAD
 
+  # Discard Changes
+  discard = restore
+  discard-all = !git restore .
+
   # Graph
   g = log --graph --abbrev-commit --pretty=oneline
   g-all = g --all
