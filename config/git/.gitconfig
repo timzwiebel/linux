@@ -37,6 +37,9 @@
   rem = restore --staged
   rem-all = reset
 
+  # Root
+  root = rev-parse --show-toplevel
+
   # Status
   s = status
 

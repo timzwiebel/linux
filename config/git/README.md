@@ -142,6 +142,9 @@ simplified by using aliases.
   rem = restore --staged
   rem-all = reset
 
+  # Root
+  root = rev-parse --show-toplevel
+
   # Status
   s = status
 
@@ -178,6 +181,13 @@ git sync  # git pull --rebase --prune --recurse-submodules
 #### View the status of the current branch
 ```shell
 git s  # git status
+```
+
+### Root Directory
+
+#### Print the root/top-level directory of the local repository
+```shell
+git root  # git rev-parse --show-toplevel
 ```
 
 ### Branching
