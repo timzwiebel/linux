@@ -37,7 +37,7 @@ Git settings are stored in `.gitconfig`. These are some of the basic ones:
 SSH can be used for both signing your commits as well as authenticating with
 remote repositories.
 
-### Signing commits
+### Signing commits and tags
 `.gitconfig`:
 ```
 [commit]
@@ -45,6 +45,13 @@ remote repositories.
 
 [gpg]
   format = ssh
+
+[gpg "ssh"]
+  allowedSignersFile = /home/johndoe/.ssh/allowed_signers
+
+[tag]
+  forceSignAnnotated = true
+  gpgSign = true
 
 [user]
   signingkey = /home/johndoe/.ssh/id_ed25519.pub
@@ -125,12 +132,12 @@ simplified by using aliases.
   # Graph
   g = log --graph --abbrev-commit --pretty=oneline
   g-all = g --all
-  g-full = log --graph --pretty=fuller
+  g-full = log --graph --pretty=fuller --show-signature
   g-full-all = g-full --all
 
   # Log
   l = log --abbrev-commit --pretty=oneline
-  l-full = log --pretty=fuller
+  l-full = log --pretty=fuller --show-signature
 
   # Pending
   p = difftool --dir-diff --cached
@@ -221,7 +228,7 @@ git bd <branch>  # git branch --delete <branch>
   ```
 - View the **full** commit history of the current branch:
   ```shell
-  git l-full  # git log --pretty=fuller
+  git l-full  # git log --pretty=fuller --show-signature
   ```
 
 #### View the commit logs as a graph
@@ -231,7 +238,7 @@ git bd <branch>  # git branch --delete <branch>
   ```
 - View the **full** commit history of the **current branch** as a graph:
   ```shell
-  git g-full  # git log --graph --pretty=fuller
+  git g-full  # git log --graph --pretty=fuller --show-signature
   ```
 - View the **abbreviated** commit history of **all branches** as a graph:
   ```shell
@@ -239,7 +246,7 @@ git bd <branch>  # git branch --delete <branch>
   ```
 - View the **full** commit history of **all branches** as a graph:
   ```shell
-  git g-full-all  # git log --graph --pretty=fuller --all
+  git g-full-all  # git log --graph --pretty=fuller --show-signature --all
   ```
 
 ### Staging files

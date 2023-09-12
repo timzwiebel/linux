@@ -20,12 +20,12 @@
   # Graph
   g = log --graph --abbrev-commit --pretty=oneline
   g-all = g --all
-  g-full = log --graph --pretty=fuller
+  g-full = log --graph --pretty=fuller --show-signature
   g-full-all = g-full --all
 
   # Log
   l = log --abbrev-commit --pretty=oneline
-  l-full = log --pretty=fuller
+  l-full = log --pretty=fuller --show-signature
 
   # Pending
   p = difftool --dir-diff --cached
@@ -77,6 +77,10 @@
   format = ssh
 
 
+[gpg "ssh"]
+  allowedSignersFile = /home/timzwiebel/.ssh/allowed_signers
+
+
 [init]
   defaultBranch = main
 
@@ -87,6 +91,11 @@
 
 [mergetool "meld"]
   cmd = meld "${LOCAL}" "${BASE}" "${REMOTE}" --output "${MERGED}"
+
+
+[tag]
+  forceSignAnnotated = true
+  gpgSign = true
 
 
 [user]
