@@ -1,0 +1,59 @@
+{
+  // Tab settings:
+  "editor.detectIndentation": false,
+  "editor.indentSize": 2,
+  "editor.tabSize": 8,
+
+  // Whitespace settings:
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+
+  // Ruler settings:
+  "editor.rulers": [
+    80,
+    100,
+  ],
+
+  // Word wrap settings:
+  "[markdown]": {
+    "editor.wordWrap": "off",
+  },
+
+  // Quote settings:
+  "javascript.preferences.quoteStyle": "single",
+  "typescript.preferences.quoteStyle": "single",
+
+  // File settings:
+  "files.enableTrash": false,
+
+  // Terminal settings:
+  "terminal.integrated.allowChords": false,
+
+  // Extension settings:
+  "svelte.enable-ts-plugin": true,
+  "svelte.plugin.svelte.format.config.singleQuote": true,
+
+  // Appearance settings:
+  "window.zoomLevel": 1,
+  "workbench.tree.indent": 18,
+  "workbench.tree.renderIndentGuides": "always",
+  "workbench.colorCustomizations": {
+    // Make the minimap and scrollbar easier to see.
+    "minimap.background": "#64646433",
+    "scrollbarSlider.background": "#79797966",
+    "scrollbarSlider.hoverBackground": "#646464b3",
+    // Make the borders between panels easier to see.
+    "activityBar.border": "#797979",
+    "sideBar.border": "#797979",
+    "tab.border": "#797979",
+    "editorGroup.border": "#797979",
+    "editorGroupHeader.tabsBorder": "#797979",
+    "editorGroupHeader.border": "#797979",
+    "editorOverviewRuler.border": "#797979",
+    "statusBar.border": "#797979",
+    "tab.lastPinnedBorder": "#ffffff",
+    // Make the highlight color of other matches easier to see.
+    "editor.selectionHighlightBackground": "#add6ff4d",
+  },
+}
