@@ -4,15 +4,15 @@
 
 
 ## Install
-> IMPORTANT: The `.gitconfig` file in this repository uses my name/email
+> **IMPORTANT:** The `.gitconfig` file in this repository uses my name/email
 > address. You should use your own name/email address.
 
 ```shell
 ln -s linux/config/git/.gitconfig .gitconfig
 ```
 
-> TIP: If you already have a `.gitconfig` file and you want to use parts of your
-> git config conditionally (e.g., enable some aliases only in a particular
+> **TIP:** If you already have a `.gitconfig` file and you want to use parts of
+> your git config conditionally (e.g., enable some aliases only in a particular
 > repository), then you can split the config file into pieces and use
 > `[includeIf]` sections
 > ([examples](https://git-scm.com/docs/git-config#_example)).
@@ -85,7 +85,7 @@ If you want a better experience for diffing on the command line, consider
 If you want to use a GUI for diffing and merging, consider
 [Meld](https://meldmerge.org)
 
-> TODO(timzwiebel): Update the config to automatically choose Meld or Delta
+> **TODO(timzwiebel):** Update the config to automatically choose Meld or Delta
 > depending on whether there's a `$DISPLAY`
 
 `.gitconfig`:
@@ -170,7 +170,7 @@ git init
 ```
 
 #### Download an existing remote git repository
-> TIP: Remember to use the "SSH" URL
+> **TIP:** Remember to use the "SSH" URL
 
 ```shell
 git clone <url> [<dir>]
@@ -309,7 +309,7 @@ git commit
 ```
 
 #### Submit all local commits to the remote repository
-> TODO(timzwiebel): add notes about how to submit changes to a submodule
+> **TODO(timzwiebel):** add notes about how to submit changes to a submodule
 
 ```shell
 git submit  # git push --recurse-submodules=on-demand
