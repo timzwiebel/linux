@@ -163,6 +163,16 @@ simplified by using aliases.
   sync = pull --rebase --prune --recurse-submodules
 ```
 
+### Referencing commits
+There are several ways to reference a commit in a git command:
+- The commit hash (either the full 40-character commit hash or the 7-character
+  abbreviated commit hash)
+- A branch name (uses the tip of the branch)
+- `HEAD` (uses the tip of the current branch)
+- Ancestors of a commit (using `~`), for example:
+  - `main~` or `main~1` (the first parent of the tip of the `main` branch)
+  - `HEAD~3` (the third parent of the tip of the current branch)
+
 ### Initializing repositories
 
 #### Start a new local git repository
@@ -301,8 +311,8 @@ git bd <branch>  # git branch --delete <branch>
   ```shell
   git d-all  # git difftool --dir-diff HEAD
   ```
-- Diff two commits (if the second commit isn't specified, the working tree is
-  used):
+- Diff two commits (see [Referencing commits](#referencing-commits); if the
+  second commit isn't specified, the working tree is used):
   ```shell
   git d-commit <commit_1> [<commit_2>]  # git difftool --dir-diff <commit_1> [<commit_2>]
   ```
@@ -319,4 +329,193 @@ git commit
 
 ```shell
 git submit  # git push --recurse-submodules=on-demand
+```
+
+### Rebasing
+
+> **WARNING:** `git rebase` rewrites the commit history. It **can be harmful** to do
+> it in shared branches. It can cause complex and hard-to-resolve merge
+> conflicts. Therefore, it should generally only be used on commits that haven't
+> yet been pushed to a shared repository.
+>
+> If you do end up rewriting commit history in a shared repository, you'll need
+> to force push; when you do, ensure that you use `--force-with-lease` instead
+> of `--force`. See
+> [GitLab's documentation](https://docs.gitlab.com/ee/topics/git/git_rebase.html)
+> for more information (this applies to any shared git repository, e.g., GitHub,
+> not only to GitLab).
+
+#### Explanation of rebase commands
+Generally, git rebase commands look like this:
+```shell
+git rebase [--onto <new_base_commit>] <upstream_commit> [<branch>]
+```
+
+This command results in the following:
+1.  If `<branch>` is specified, switch to `<branch>` (if `<branch>` is already
+    the current branch, there's no need to specify it)
+1.  Find the common ancestor between `<upstream_commit>` and the tip of the
+    current branch
+1.  Reapply commits between the common ancestor (exclusive) and the tip of the
+    current branch (inclusive) onto `<upstream_commit>` (or onto
+    `<new_base_commit>` if `--onto` was used).
+
+> **IMPORTANT:** Note that any commits already present upstream will be skipped. For example:
+> ```
+>       A---B---C topic
+>      /
+> D---E---A'---F master
+> ```
+>
+> Rebasing `topic` onto `master` will result in the following:
+> ```
+>                B'---C' topic
+>               /
+> D---E---A'---F master
+> ```
+
+Some common examples of rebasing are shown below.
+
+#### Rebase one branch onto another branch
+Example:
+```
+      A---B---C topic
+     /
+D---E---F---G main
+```
+
+To rebase `topic` onto `main`, run this command:
+```shell
+git rebase main topic
+```
+
+`E` is the common ancestor of `main` (`G`) and `topic` (`C`), so commits in the
+range `(E, C]` (`A` through `C` inclusive) will be rebased onto `main` (`G`).
+This results in the following:
+```
+              A'--B'--C' topic
+             /
+D---E---F---G main
+```
+
+#### Rebase part of a branch onto another branch
+Example:
+```
+                        H---I---J topicB
+                       /
+              E---F---G  topicA
+             /
+A---B---C---D  main
+```
+
+To rebase `topicB` onto `main`, run this command:
+```shell
+git rebase --onto main topicA topicB
+```
+
+`G` is the common ancestor of `topicA` (`G`) and `topicB` (`J`), so commits in
+the range `(G, J]` (`H` through `J` inclusive) will be rebased onto `main`
+(`D`). This results in the following:
+```
+             H'--I'--J'  topicB
+            /
+            | E---F---G  topicA
+            |/
+A---B---C---D  main
+```
+
+#### Remove a range of commits
+Example:
+```
+E---F---G---H---I---J  topicA
+```
+
+To remove `F` through `G`, run this command:
+```shell
+git rebase --onto topicA~5 topicA~3 topicA
+```
+
+`G` is the common ancestor of `topicA~3` (`G`) and `topicA` (`J`), so commits in
+the range `(G, J]` (`H` through `J` inclusive) will be rebased onto `topicA~5`
+(`E`). This results in the following:
+```
+E---H'---I'---J'  topicA
+```
+
+#### Rewrite commit history
+Sometimes you might want to rewrite the commit history. For example:
+- Edit commits (`edit`)
+- Edit commit messages (`reword`)
+- Remove commits (`drop`)
+- Combine multiple commits (`squash`)
+- Split a commit (`edit`)
+- Reorder commits
+
+The easiest way to do this is to use "interactive mode" (`-i`/`--interactive`):
+```shell
+git rebase -i <commit>
+```
+
+Example:
+```
+A---B---C---D---E---F---G---H---I---J
+```
+
+To edit commit history starting at `C` (inclusive):
+```shell
+git rebase -i C~
+```
+
+An editor will be launched with the commit history. For example:
+```
+pick C Implement feature one (broken)
+pick D Ipmlement faeture two
+pick E Implement feature three
+pick F Implement feature four
+pick G Fix feature four
+pick H Implement feature five (big feature)
+pick I Implement feature six
+pick J Implement feature seven
+```
+
+The commit history can now be changed. For example:
+```
+edit C Implement feature one (broken)
+reword D Ipmlement faeture two
+drop E Implement feature three
+pick F Implement feature four
+squash G Fix feature four
+edit H Implement feature five (big feature)
+pick J Implement feature seven
+pick I Implement feature six
+```
+
+After saving and quitting the editor, the rebase will begin.
+
+Each time the rebase is interrupted (e.g., to edit a commit), you can make
+changes to files, then stage them with `git add`, and finally commit them with
+`git commit --amend`.
+
+If you `git commit` without `--amend`, you will add new
+commits to the commit history. For example, this can be useful for splitting a
+large commit into several smaller ones.
+
+> **TIP:** In between steps, make sure that everything builds and that tests pass
+> before proceeding to the next step. Add a new line containing the `break`
+> command to add extra interrupts to the rebase.
+
+When you're ready, use `git rebase --continue` to move to the next step. Or use
+`git rebase --abort` to revert back to the state before the rebase began.
+
+The example above will do the following:
+1.  Edit "feature one" (`C`) to fix the broken feature
+1.  Edit the commit message for "feature two" (`D`)
+1.  Remove "feature three" (`E`)
+1.  Combine "feature four" and its "fix" (`F` and `G`)
+1.  Edit "feature five" (`H`) to split it into multiple commits
+1.  Move "feature seven" (`J`) before "feature six" (`I`)
+
+The final result will be:
+```
+A---B---C'---D'---FG---H1---H2---H3---J'---I'
 ```
