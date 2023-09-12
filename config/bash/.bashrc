@@ -71,14 +71,11 @@ alias pacman-update='pacman --sync --refresh --sysupgrade'
 #   \w             <full_working_directory>
 #   \[\e[00m\]     <reset>
 #   \[\e[01;35m\]  <set bold; magenta>
-#   $(git branch --no-color 2>/dev/null | sed -e "/^[^*]/d" -e "s|* \(.*\)| (\1)|")
+#   $(${HOME}/linux/lib/prompt-git-current-branch)
 #                  <git_branch_name> (" (<branch_name>)" or "")
-#                  (The full "git branch" command is better than
-#                  "git branch --show-current" because it also works in a
-#                  "detached HEAD" state)
 #   \[\e[00m\]     <reset>
 #   \n>            \n> (literal)
-PS1='$(if [[ "$?" == "0" ]]; then echo -n "\[\e[32m\][$?]"; else echo -n "\[\e[01;31m\][$?]"; fi)\[\e[00m\]\n\n\[\e[01;34m\]\u@\h\[\e[00m\]:\[\e[01;36m\]\w\[\e[00m\]\[\e[01;35m\]$(git branch --no-color 2>/dev/null | sed -e "/^[^*]/d" -e "s|* \(.*\)| (\1)|")\[\e[00m\]\n> '
+PS1='$(if [[ "$?" == "0" ]]; then echo -n "\[\e[32m\][$?]"; else echo -n "\[\e[01;31m\][$?]"; fi)\[\e[00m\]\n\n\[\e[01;34m\]\u@\h\[\e[00m\]:\[\e[01;36m\]\w\[\e[00m\]\[\e[01;35m\]$(${HOME}/linux/lib/prompt-git-current-branch)\[\e[00m\]\n> '
 
 
 # Workaround for VS Code bug present in v1.81.1.
