@@ -12,6 +12,7 @@
   # Diff
   d = difftool HEAD
   d-all = difftool --dir-diff HEAD
+  d-commit = difftool --dir-diff
 
   # Discard Changes
   discard = restore

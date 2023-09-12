@@ -124,6 +124,7 @@ simplified by using aliases.
   # Diff
   d = difftool HEAD
   d-all = difftool --dir-diff HEAD
+  d-commit = difftool --dir-diff
 
   # Discard Changes
   discard = restore
@@ -299,6 +300,11 @@ git bd <branch>  # git branch --delete <branch>
   HEAD vs files):
   ```shell
   git d-all  # git difftool --dir-diff HEAD
+  ```
+- Diff two commits (if the second commit isn't specified, the working tree is
+  used):
+  ```shell
+  git d-commit <commit_1> [<commit_2>]  # git difftool --dir-diff <commit_1> [<commit_2>]
   ```
 
 ### Submitting changes
