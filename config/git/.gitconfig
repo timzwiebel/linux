@@ -29,7 +29,7 @@
   l-full = log --pretty=fuller --show-signature
 
   # Pending
-  p = difftool --dir-diff --cached
+  p = difftool --dir-diff --staged
 
   # Resolve
   resolve = mergetool

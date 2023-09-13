@@ -141,7 +141,7 @@ simplified by using aliases.
   l-full = log --pretty=fuller --show-signature
 
   # Pending
-  p = difftool --dir-diff --cached
+  p = difftool --dir-diff --staged
 
   # Resolve
   resolve = mergetool
@@ -299,7 +299,7 @@ git bd <branch>  # git branch --delete <branch>
 ## Diffing changes
 - Diff all staged files against local HEAD:
   ```shell
-  git p  # git difftool --dir-diff --cached
+  git p  # git difftool --dir-diff --staged
   ```
 - Diff a single file, regardless of whether it's staged (local HEAD vs file):
   ```shell
