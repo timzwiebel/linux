@@ -3,7 +3,7 @@
 [TOC]
 
 
-## Install
+# Install
 > **IMPORTANT:** The `.gitconfig` file in this repository uses my name/email
 > address. You should use your own name/email address.
 
@@ -18,7 +18,7 @@ ln -s linux/config/git/.gitconfig .gitconfig
 > ([examples](https://git-scm.com/docs/git-config#_example)).
 
 
-## Configuration
+# Configuration
 Git settings are stored in `.gitconfig`. These are some of the basic ones:
 ```
 [core]
@@ -33,11 +33,11 @@ Git settings are stored in `.gitconfig`. These are some of the basic ones:
 ```
 
 
-## SSH
+# SSH
 SSH can be used for both signing your commits as well as authenticating with
 remote repositories.
 
-### Signing commits and tags
+## Signing commits and tags
 `.gitconfig`:
 ```
 [commit]
@@ -57,16 +57,16 @@ remote repositories.
   signingkey = /home/johndoe/.ssh/id_ed25519.pub
 ```
 
-### Authenticating
+## Authenticating
 Use the "SSH" URL when cloning a repository. It should look something like this:
 ```
 git@github.com:johndoe/myrepository.git
 ```
 
 
-## Optional: Better Diffs/Merges
+# Optional: Better Diffs/Merges
 
-### Terminal
+## Terminal
 If you want a better experience for diffing on the command line, consider
 [Delta](https://github.com/dandavison/delta)
 
@@ -81,7 +81,7 @@ If you want a better experience for diffing on the command line, consider
   side-by-side = true
 ```
 
-### GUI
+## GUI
 If you want to use a GUI for diffing and merging, consider
 [Meld](https://meldmerge.org)
 
@@ -104,7 +104,7 @@ If you want to use a GUI for diffing and merging, consider
 ```
 
 
-## Git Commands
+# Git Commands
 Below are the most common commands used while working with git. These can be
 simplified by using aliases.
 
@@ -163,7 +163,7 @@ simplified by using aliases.
   sync = pull --rebase --prune --recurse-submodules
 ```
 
-### Referencing commits
+## Referencing commits
 There are several ways to reference a commit in a git command:
 - The commit hash (either the full 40-character commit hash or the 7-character
   abbreviated commit hash)
@@ -173,66 +173,66 @@ There are several ways to reference a commit in a git command:
   - `main~` or `main~1` (the first parent of the tip of the `main` branch)
   - `HEAD~3` (the third parent of the tip of the current branch)
 
-### Initializing repositories
+## Initializing repositories
 
-#### Start a new local git repository
+### Start a new local git repository
 ```shell
 git init
 ```
 
-#### Download an existing remote git repository
+### Download an existing remote git repository
 > **TIP:** Remember to use the "SSH" URL
 
 ```shell
 git clone <url> [<dir>]
 ```
 
-### Syncing
+## Syncing
 
-#### Sync the local repository with the remote repository
+### Sync the local repository with the remote repository
 ```shell
 git sync  # git pull --rebase --prune --recurse-submodules
 ```
 
-### Status
+## Status
 
-#### View the status of the current branch
+### View the status of the current branch
 ```shell
 git s  # git status
 ```
 
-### Root Directory
+## Root Directory
 
-#### Print the root/top-level directory of the local repository
+### Print the root/top-level directory of the local repository
 ```shell
 git root  # git rev-parse --show-toplevel
 ```
 
-### Branching
+## Branching
 
-#### Switch to a different branch
+### Switch to a different branch
 ```shell
 git bs <branch>  # git switch <branch>
 ```
 
-#### Create a new branch (and switch to it)
+### Create a new branch (and switch to it)
 ```shell
 git bc <branch>  # git switch --create <branch>
 ```
 
-#### List all branches
+### List all branches
 ```shell
 git bl  # git branch
 ```
 
-#### Delete a branch
+### Delete a branch
 ```shell
 git bd <branch>  # git branch --delete <branch>
 ```
 
-### Viewing commit history
+## Viewing commit history
 
-#### View the commit logs
+### View the commit logs
 - View the **abbreviated** commit history of the current branch:
   ```shell
   git l  # git log --abbrev-commit --pretty=oneline
@@ -242,7 +242,7 @@ git bd <branch>  # git branch --delete <branch>
   git l-full  # git log --pretty=fuller --show-signature
   ```
 
-#### View the commit logs as a graph
+### View the commit logs as a graph
 - View **abbreviated** commit history of the **current branch** as a graph:
   ```shell
   git g  # git log --graph --abbrev-commit --pretty=oneline
@@ -260,9 +260,9 @@ git bd <branch>  # git branch --delete <branch>
   git g-full-all  # git log --graph --pretty=fuller --show-signature --all
   ```
 
-### Staging files
+## Staging files
 
-#### Stage files for commit
+### Stage files for commit
 - Stage **a file** for commit:
   ```shell
   git add <file> [<file> ...]
@@ -276,7 +276,7 @@ git bd <branch>  # git branch --delete <branch>
   git add-all-tracked  # git add --update
   ```
 
-#### Unstage files for commit
+### Unstage files for commit
 - Unstage **files** for commit:
   ```shell
   git rem <file> [<file> ...]  # git restore --staged <file> [<file> ...]
@@ -286,7 +286,7 @@ git bd <branch>  # git branch --delete <branch>
   git rem-all  # git reset
   ```
 
-### Discarding changes
+## Discarding changes
 - Discard changes to a file:
   ```shell
   git discard <file> [<file> ...]  # git restore <file> [<file> ...]
@@ -296,7 +296,7 @@ git bd <branch>  # git branch --delete <branch>
   git discard-all  # git restore .
   ```
 
-### Diffing changes
+## Diffing changes
 - Diff all staged files against local HEAD:
   ```shell
   git p  # git difftool --dir-diff --cached
@@ -317,21 +317,21 @@ git bd <branch>  # git branch --delete <branch>
   git d-commit <commit_1> [<commit_2>]  # git difftool --dir-diff <commit_1> [<commit_2>]
   ```
 
-### Submitting changes
+## Submitting changes
 
-#### Commit all staged files to the local repository
+### Commit all staged files to the local repository
 ```shell
 git commit
 ```
 
-#### Submit all local commits to the remote repository
+### Submit all local commits to the remote repository
 > **TODO(timzwiebel):** add notes about how to submit changes to a submodule
 
 ```shell
 git submit  # git push --recurse-submodules=on-demand
 ```
 
-### Rebasing
+## Rebasing
 
 > **WARNING:** `git rebase` rewrites the commit history. It **can be harmful** to do
 > it in shared branches. It can cause complex and hard-to-resolve merge
@@ -345,7 +345,7 @@ git submit  # git push --recurse-submodules=on-demand
 > for more information (this applies to any shared git repository, e.g., GitHub,
 > not only to GitLab).
 
-#### Explanation of rebase commands
+### Explanation of rebase commands
 Generally, git rebase commands look like this:
 ```shell
 git rebase [--onto <new_base_commit>] <upstream_commit> [<branch>]
@@ -376,7 +376,7 @@ This command results in the following:
 
 Some common examples of rebasing are shown below.
 
-#### Rebase one branch onto another branch
+### Rebase one branch onto another branch
 Example:
 ```
       A---B---C topic
@@ -398,7 +398,7 @@ This results in the following:
 D---E---F---G main
 ```
 
-#### Rebase part of a branch onto another branch
+### Rebase part of a branch onto another branch
 Example:
 ```
                         H---I---J topicB
@@ -424,7 +424,7 @@ the range `(G, J]` (`H` through `J` inclusive) will be rebased onto `main`
 A---B---C---D  main
 ```
 
-#### Remove a range of commits
+### Remove a range of commits
 Example:
 ```
 E---F---G---H---I---J  topicA
@@ -442,7 +442,7 @@ the range `(G, J]` (`H` through `J` inclusive) will be rebased onto `topicA~5`
 E---H'---I'---J'  topicA
 ```
 
-#### Rewrite commit history
+### Rewrite commit history
 Sometimes you might want to rewrite the commit history. For example:
 - Edit commits (`edit`)
 - Edit commit messages (`reword`)

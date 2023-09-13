@@ -2,12 +2,12 @@
 
 [TOC]
 
-## Install
+# Install
 ```shell
 ln -s ../../../linux/config/vscode/settings.json ~/.config/Code\ -\ OSS/User/settings.json
 ```
 
-## Links
+# Links
 - Releases:
   - [Visual Studio Code](https://code.visualstudio.com): the proprietary
     Microsoft-branded release
@@ -21,7 +21,7 @@ ln -s ../../../linux/config/vscode/settings.json ~/.config/Code\ -\ OSS/User/set
   - [Open VSX Registry](https://open-vsx.org): a vendor-neutral open-source
     alternative to the Visual Studio Marketplace
 
-## Extensions
+# Extensions
 - General:
   - **Rewrap**
     ([Marketplace](https://marketplace.visualstudio.com/items?itemName=stkb.rewrap),

@@ -2,6 +2,6 @@
 
 [TOC]
 
-## Install
+# Install
 See [Bash#Install](../config/bash/README.md#install) to add these custom
 binaries/scripts to `PATH`.

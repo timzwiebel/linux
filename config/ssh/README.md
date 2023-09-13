@@ -2,7 +2,7 @@
 
 [TOC]
 
-## Install
+# Install
 > **IMPORTANT:** The `id_*.pub` files in this repository are my public SSH keys.
 > You should use your own public SSH keys.
 
@@ -10,7 +10,7 @@
 ln -s linux/config/ssh .ssh
 ```
 
-## Generating keys
+# Generating keys
 ```shell
 ssh-keygen -t ed25519 -a 100 -C '<your_email>'
 ```
@@ -26,11 +26,11 @@ signature with 100 "rounds" and your email address as the "comment".
 > <your_email> ssh-ed25519 AAA...
 > ```
 
-## Changing the private key password
+# Changing the private key password
 ```shell
 ssh-keygen -p -a 100 -f ~/.ssh/id_ed25519
 ```
 
-## Git
+# Git
 SSH can be used for both signing your commits as well as authenticating with
 remote repositories. See [Git#SSH](../git/README.md#ssh).
