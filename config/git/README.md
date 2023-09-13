@@ -54,7 +54,7 @@ remote repositories.
   gpgSign = true
 
 [user]
-  signingkey = /home/johndoe/.ssh/id_ed25519.pub
+  signingKey = /home/johndoe/.ssh/id_ed25519.pub
 ```
 
 ## Authenticating

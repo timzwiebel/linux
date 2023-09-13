@@ -102,4 +102,4 @@
 [user]
   email = timzwiebel@gmail.com
   name = Tim Zwiebel
-  signingkey = /home/timzwiebel/.ssh/id_ed25519.pub
+  signingKey = /home/timzwiebel/.ssh/id_ed25519.pub
