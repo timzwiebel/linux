@@ -11,9 +11,9 @@
 ln -s linux/config/git/.gitconfig .gitconfig
 ```
 
-> **TIP:** If you already have a `.gitconfig` file and you want to use parts of
-> your git config conditionally (e.g., enable some aliases only in a particular
-> repository), then you can split the config file into pieces and use
+> **TIP:** If you want to split your git config into multiple files and/or use
+> parts of your git config conditionally (e.g., enable some aliases only when
+> working in a particular repository), then you can use `[include]` and
 > `[includeIf]` sections
 > ([examples](https://git-scm.com/docs/git-config#_example)).
 
