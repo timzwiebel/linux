@@ -87,7 +87,7 @@ If you want a better experience anywhere a pager is used on the command line
 ## Diff/Merge Tool
 If you want a better experience for diffing and merging on the command line,
 here's an example `.gitconfig` that uses
-[`vimdiff`](https://vimdoc.sourceforge.net/htmldoc/diff.html):
+[`vimdiff`](https://vimhelp.org/diff.txt.html):
 ```
 [diff]
   tool = vimdiff
