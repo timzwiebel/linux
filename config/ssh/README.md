@@ -7,7 +7,7 @@
 > You should use your own public SSH keys.
 
 ```shell
-ln -s linux/config/ssh .ssh
+ln -s linux/config/ssh ~/.ssh
 ```
 
 # Generating keys

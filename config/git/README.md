@@ -8,7 +8,7 @@
 > address. You should use your own name/email address.
 
 ```shell
-ln -s linux/config/git/.gitconfig .gitconfig
+ln -s linux/config/git/.gitconfig ~/.gitconfig
 ```
 
 > **TIP:** If you want to split your Git config into multiple files and/or use

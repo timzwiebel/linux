@@ -3,7 +3,10 @@
 [TOC]
 
 # Install
-These binaries/scripts should **not** be added to `PATH` since they are not
-intended to be invoked directly by users. Therefore, no installation is
-necessary. These libraries should be called by other scripts using the full path
+These are custom scripts that are required by other scripts/configs. There are
+also executable scripts that are not intended to be invoked directly by users
+and therefore should not be added to `PATH`. Therefore, no installation is
+necessary.
+
+Scripts outside of this repository should reference these using the full path
 (e.g., `${HOME}/linux/lib/<file>`).
