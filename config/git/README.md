@@ -132,6 +132,7 @@ simplified by using aliases.
   d = difftool HEAD
   d-all = difftool --dir-diff HEAD
   d-commit = difftool --dir-diff
+  d-staged = difftool --dir-diff --staged
 
   # Discard Changes
   discard = restore
@@ -146,9 +147,6 @@ simplified by using aliases.
   # Log
   l = log --abbrev-commit --pretty=oneline
   l-full = log --pretty=fuller --show-signature
-
-  # Pending
-  p = difftool --dir-diff --staged
 
   # Resolve
   resolve = mergetool
@@ -306,7 +304,7 @@ git bd <branch>  # git branch --delete <branch>
 ## Diffing changes
 - Diff all staged files against local HEAD:
   ```shell
-  git p  # git difftool --dir-diff --staged
+  git d-staged  # git difftool --dir-diff --staged
   ```
 - Diff a single file, regardless of whether it's staged (local HEAD vs file):
   ```shell

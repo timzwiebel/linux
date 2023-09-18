@@ -20,6 +20,7 @@
   d = difftool HEAD
   d-all = difftool --dir-diff HEAD
   d-commit = difftool --dir-diff
+  d-staged = difftool --dir-diff --staged
 
   # Discard Changes
   discard = restore
@@ -34,9 +35,6 @@
   # Log
   l = log --abbrev-commit --pretty=oneline
   l-full = log --pretty=fuller --show-signature
-
-  # Pending
-  p = difftool --dir-diff --staged
 
   # Resolve
   resolve = mergetool
