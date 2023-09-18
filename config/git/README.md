@@ -18,7 +18,7 @@ ln -s linux/config/git/.gitconfig .gitconfig
 > ([examples](https://git-scm.com/docs/git-config#_example)).
 
 
-# Configuration
+# Basic Configuration
 Git settings are stored in `.gitconfig`. These are some of the basic ones:
 ```
 [core]
