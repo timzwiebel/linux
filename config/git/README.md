@@ -11,8 +11,8 @@
 ln -s linux/config/git/.gitconfig .gitconfig
 ```
 
-> **TIP:** If you want to split your git config into multiple files and/or use
-> parts of your git config conditionally (e.g., enable some aliases only when
+> **TIP:** If you want to split your Git config into multiple files and/or use
+> parts of your Git config conditionally (e.g., enable some aliases only when
 > working in a particular repository), then you can use `[include]` and
 > `[includeIf]` sections
 > ([examples](https://git-scm.com/docs/git-config#_example)).
@@ -374,7 +374,7 @@ git bd <branch>  # git branch --delete <branch>
 ### Tips
 Before going into the specifics, it's helpful to read through the
 [Contributing to a Project](https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project)
-section of the Pro Git book, available for free on the official git website.
+section of the Pro Git book, available for free on the official Git website.
 
 **TL;DR:**
 - Run `git diff --check [--staged]` before committing
@@ -425,11 +425,11 @@ git submit  # git push --recurse-submodules=on-demand
 > to force push. When you do, ensure that you use `--force-with-lease` instead
 > of `--force`. See [GitLab's
 > documentation](https://docs.gitlab.com/ee/topics/git/git_rebase.html) for more
-> information (this information applies to any shared git repository, e.g., one
-> on GitHub, not only to those hosted on GitLab).
+> information (this information applies to any shared repository, e.g., one on
+> GitHub, not only to those hosted on GitLab).
 
 ### Explanation of rebase commands
-Generally, git rebase commands look like this:
+Generally, `git rebase` commands look like this:
 ```shell
 git rebase [--onto <new_base_commit>] <upstream_commit> [<branch>]
 ```
