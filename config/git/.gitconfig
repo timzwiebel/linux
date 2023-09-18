@@ -9,6 +9,13 @@
   bl = branch
   bs = switch
 
+  # Check
+  check = diff --check --staged
+  check-all = "!f() { echo 'Staged:' && git diff --check && echo '(no errors)'; echo -e '\\nUnstaged:' && git diff --check --staged && echo '(no errors)'; } && f"
+
+  # Check and Commit
+  check-commit = "!f() { git check && git commit \"$@\"; } && f"
+
   # Diff
   d = difftool HEAD
   d-all = difftool --dir-diff HEAD
