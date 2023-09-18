@@ -134,10 +134,13 @@ when a display is available, but falls back to `vimdiff`:
 
 
 # Git Commands
-Below are the most common commands used while working with git. These can be
-simplified by using aliases.
+Below are the most common commands used while working with `git`. These can be
+simplified by using aliases. Here is a list of the aliases in my `.gitconfig`:
 
-`.gitconfig`:
+> **IMPORTANT:** These commands will behave differently depending on the
+> settings in your `.gitconfig` and/or the command line flags used. Be sure to
+> read each section about the various commands for a full understanding.
+
 ```
 [alias]
   # Add
@@ -198,7 +201,7 @@ simplified by using aliases.
 ```
 
 ## Referencing commits
-There are several ways to reference a commit in a git command:
+There are several ways to reference a specific commit in a `git` command:
 - The commit hash (either the full 40-character commit hash or the 7-character
   abbreviated commit hash)
 - A branch name (uses the tip of the branch)
