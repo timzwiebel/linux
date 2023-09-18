@@ -32,5 +32,6 @@ ssh-keygen -p -a 100 -f ~/.ssh/id_ed25519
 ```
 
 # Git
-SSH can be used for both signing your commits as well as authenticating with
-remote repositories. See [Git#SSH](../git/README.md#ssh).
+SSH can be used for both authenticating with remote repositories as well as
+signing your commits and tags so that they can be verified. See
+[Git#SSH](../git/README.md#ssh).

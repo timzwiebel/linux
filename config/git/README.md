@@ -32,8 +32,8 @@ Git settings are stored in `.gitconfig`. These are some of the basic ones:
 
 # SSH
 [SSH keys](../ssh/README.md#generating-keys) can be used for both authenticating
-with remote repositories as well as signing your commits and tags so that they can be
-verified.
+with remote repositories as well as signing your commits and tags so that they
+can be verified.
 
 ## Authenticating
 Upload your public ssh key to your account on your repository host
