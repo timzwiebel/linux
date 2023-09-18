@@ -416,17 +416,17 @@ git submit  # git push --recurse-submodules=on-demand
 
 ## Rebasing
 
-> **WARNING:** `git rebase` rewrites the commit history. It **can be harmful** to do
-> it in shared branches. It can cause complex and hard-to-resolve merge
+> **WARNING:** `git rebase` rewrites the commit history. It **can be harmful**
+> to do it in shared branches. It can cause complex and hard-to-resolve merge
 > conflicts. Therefore, it should generally only be used on commits that haven't
 > yet been pushed to a shared repository.
 >
 > If you do end up rewriting commit history in a shared repository, you'll need
-> to force push; when you do, ensure that you use `--force-with-lease` instead
-> of `--force`. See
-> [GitLab's documentation](https://docs.gitlab.com/ee/topics/git/git_rebase.html)
-> for more information (this applies to any shared git repository, e.g., GitHub,
-> not only to GitLab).
+> to force push. When you do, ensure that you use `--force-with-lease` instead
+> of `--force`. See [GitLab's
+> documentation](https://docs.gitlab.com/ee/topics/git/git_rebase.html) for more
+> information (this information applies to any shared git repository, e.g., one
+> on GitHub, not only to those hosted on GitLab).
 
 ### Explanation of rebase commands
 Generally, git rebase commands look like this:
@@ -443,7 +443,8 @@ This command results in the following:
     current branch (inclusive) onto `<upstream_commit>` (or onto
     `<new_base_commit>` if `--onto` was used).
 
-> **IMPORTANT:** Note that any commits already present upstream will be skipped. For example:
+> **IMPORTANT:** Note that any commits already present upstream will be skipped.
+> For example:
 > ```
 >       A---B---C topic
 >      /
@@ -508,6 +509,10 @@ A---B---C---D  main
 ```
 
 ### Remove a range of commits
+> **NOTE:** This example is included for completeness, but it's probably easier
+> to use the technique described in
+> [Rewrite commit history](#rewrite-commit-history).
+
 Example:
 ```
 E---F---G---H---I---J  topicA
@@ -573,23 +578,6 @@ pick J Implement feature seven
 pick I Implement feature six
 ```
 
-After saving and quitting the editor, the rebase will begin.
-
-Each time the rebase is interrupted (e.g., to edit a commit), you can make
-changes to files, then stage them with `git add`, and finally commit them with
-`git commit --amend`.
-
-If you `git commit` without `--amend`, you will add new
-commits to the commit history. For example, this can be useful for splitting a
-large commit into several smaller ones.
-
-> **TIP:** In between steps, make sure that everything builds and that tests pass
-> before proceeding to the next step. Add a new line containing the `break`
-> command to add extra interrupts to the rebase.
-
-When you're ready, use `git rebase --continue` to move to the next step. Or use
-`git rebase --abort` to revert back to the state before the rebase began.
-
 The example above will do the following:
 1.  Edit "feature one" (`C`) to fix the broken feature
 1.  Edit the commit message for "feature two" (`D`)
@@ -602,3 +590,20 @@ The final result will be:
 ```
 A---B---C'---D'---FG---H1---H2---H3---J'---I'
 ```
+
+After saving and quitting the editor, the rebase will begin.
+
+Each time the rebase is interrupted (e.g., to edit a commit), you can make
+changes to files, then stage them with `git add`, and finally commit them with
+`git commit --amend`.
+
+If you `git commit` without `--amend`, you will add new commits to the commit
+history. For example, this can be useful for splitting a large commit into
+several smaller ones.
+
+> **TIP:** In between steps, make sure that everything builds and that tests
+> pass before proceeding to the next step. Add a new line containing the `break`
+> command to add extra interrupts to the rebase.
+
+When you're ready, use `git rebase --continue` to move to the next step. Or use
+`git rebase --abort` to revert back to the state before the rebase began.
