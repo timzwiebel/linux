@@ -34,11 +34,24 @@ Git settings are stored in `.gitconfig`. These are some of the basic ones:
 
 
 # SSH
-SSH can be used for both signing your commits as well as authenticating with
-remote repositories.
+[SSH keys](../ssh/README.md#generating-keys) can be used for both authenticating
+with remote repositories as well as signing your commits and tags so that they can be
+verified.
+
+## Authenticating
+Upload your public ssh key to your account on your repository host
+(e.g.,GitHub/GitLab). After that, simply use the "SSH" URL when cloning
+repositories (**not** the one that starts with `https`). It should look
+something like this:
+```
+git@github.com:johndoe/myrepository.git
+```
 
 ## Signing commits and tags
-`.gitconfig`:
+Signing commits and tags allows them to be verified
+([GitHub](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification),
+[GitLab](https://docs.gitlab.com/ee/user/project/repository/signed_commits)).
+This is an example `.gitconfig` set up for signing with SSH keys:
 ```
 [commit]
   gpgSign = true
@@ -55,12 +68,6 @@ remote repositories.
 
 [user]
   signingKey = /home/johndoe/.ssh/id_ed25519.pub
-```
-
-## Authenticating
-Use the "SSH" URL when cloning a repository. It should look something like this:
-```
-git@github.com:johndoe/myrepository.git
 ```
 
 
