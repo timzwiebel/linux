@@ -136,7 +136,7 @@ simplified by using aliases.
 
   # Discard Changes
   discard = restore
-  discard-all = !git restore .
+  discard-all = "!f() { git restore \"$(git root)\"; } && f"
 
   # Graph
   g = log --graph --abbrev-commit --pretty=oneline
@@ -298,7 +298,7 @@ git bd <branch>  # git branch --delete <branch>
   ```
 - Discard all changes (to the current directory):
   ```shell
-  git discard-all  # git restore .
+  git discard-all  # git restore "$(git rev-parse --show-toplevel)"
   ```
 
 ## Diffing changes

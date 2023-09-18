@@ -24,7 +24,7 @@
 
   # Discard Changes
   discard = restore
-  discard-all = !git restore .
+  discard-all = "!f() { git restore \"$(git root)\"; } && f"
 
   # Graph
   g = log --graph --abbrev-commit --pretty=oneline
