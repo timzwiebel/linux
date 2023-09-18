@@ -24,9 +24,6 @@ Git settings are stored in `.gitconfig`. These are some of the basic ones:
 [core]
   editor = vim
 
-[init]
-  defaultBranch = main
-
 [user]
   email = john.doe@gmail.com
   name = John Doe
@@ -212,16 +209,34 @@ There are several ways to reference a specific commit in a `git` command:
 
 ## Initializing repositories
 
-### Start a new local git repository
+### Start a new local repository
 ```shell
-git init
+git init [--initial-branch=<branch-name>]
 ```
 
-### Download an existing remote git repository
-> **TIP:** Remember to use the "SSH" URL
+> **TIP:** You can set a default branch name for `git init` in your
+> `.gitconfig`:
+> ```
+> [init]
+>   defaultBranch = main
+> ```
+>
+> Both
+> [GitHub](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch)
+> and
+> [GitLab](https://docs.gitlab.com/ee/user/project/repository/branches/default.html)
+> use `main` by default, however
+> [`git`](https://git-scm.com/docs/git-init#Documentation/git-init.txt---initial-branchltbranch-namegt)
+> still uses `master` by default (at least as of September 2023). However, there
+> are [efforts](https://sfconservancy.org/news/2020/jun/23/gitbranchname) to
+> change `git` to also use `main` by default.
+
+### Download an existing remote repository
+> **TIP:** Remember to prefer using the "SSH" URL, **not** the one that starts
+> with `https` (see [SSH](#ssh))
 
 ```shell
-git clone <url> [<dir>]
+git clone <url> [<directory>]
 ```
 
 ## Syncing
