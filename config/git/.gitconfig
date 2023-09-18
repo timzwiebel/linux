@@ -72,11 +72,13 @@
 
 
 [diff]
-  tool = meld
+  guitool = meld
+  tool = vimdiff
 
 
-[difftool "meld"]
-  cmd = meld "${LOCAL}" "${REMOTE}"
+[difftool]
+  prompt = false
+  guiDefault = auto
 
 
 [gpg]
@@ -92,11 +94,20 @@
 
 
 [merge]
-  tool = meld
+  guitool = meld
+  tool = vimdiff
+
+
+[mergetool]
+  guiDefault = auto
 
 
 [mergetool "meld"]
-  cmd = meld "${LOCAL}" "${BASE}" "${REMOTE}" --output "${MERGED}"
+  useAutoMerge = auto
+
+
+[mergetool "vimdiff"]
+  layout = LOCAL,MERGED,REMOTE
 
 
 [tag]

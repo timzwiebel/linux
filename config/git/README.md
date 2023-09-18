@@ -66,11 +66,10 @@ git@github.com:johndoe/myrepository.git
 
 # Optional: Better Diffs/Merges
 
-## Terminal
-If you want a better experience for diffing on the command line, consider
-[Delta](https://github.com/dandavison/delta)
-
-`.gitconfig`:
+## Pager
+If you want a better experience anywhere a pager is used on the command line
+(e.g., when using `git diff`), consider using
+[Delta](https://github.com/dandavison/delta). Here's an example `.gitconfig`:
 ```
 [core]
   pager = delta
@@ -81,26 +80,49 @@ If you want a better experience for diffing on the command line, consider
   side-by-side = true
 ```
 
-## GUI
-If you want to use a GUI for diffing and merging, consider
-[Meld](https://meldmerge.org)
-
-> **TODO(timzwiebel):** Update the config to automatically choose Meld or Delta
-> depending on whether there's a `$DISPLAY`
-
-`.gitconfig`:
+## Diff/Merge Tool
+If you want a better experience for diffing and merging on the command line,
+here's an example `.gitconfig` that uses
+[`vimdiff`](https://vimdoc.sourceforge.net/htmldoc/diff.html):
 ```
 [diff]
-  tool = meld
+  tool = vimdiff
 
-[difftool "meld"]
-  cmd = meld "${LOCAL}" "${REMOTE}"
+[difftool]
+  prompt = false
 
 [merge]
-  tool = meld
+  tool = vimdiff
+
+[mergetool "vimdiff"]
+  layout = LOCAL,MERGED,REMOTE
+```
+
+## Diff/Merge GUI Tool
+If you want to use a GUI for diffing and merging, consider using
+[Meld](https://meldmerge.org). Here's an example `.gitconfig` that uses Meld
+when a display is available, but falls back to `vimdiff`:
+```
+[diff]
+  guitool = meld
+  tool = vimdiff
+
+[difftool]
+  prompt = false
+  guiDefault = auto
+
+[merge]
+  guitool = meld
+  tool = vimdiff
+
+[mergetool]
+  guiDefault = auto
 
 [mergetool "meld"]
-  cmd = meld "${LOCAL}" "${BASE}" "${REMOTE}" --output "${MERGED}"
+  useAutoMerge = auto
+
+[mergetool "vimdiff"]
+  layout = LOCAL,MERGED,REMOTE
 ```
 
 
