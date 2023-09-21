@@ -1,4 +1,4 @@
-# Custom binaries/scripts
+# Custom Binaries/Scripts
 
 [TOC]
 

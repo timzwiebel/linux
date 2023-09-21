@@ -1,4 +1,4 @@
-# Bash
+# Bash Configuration
 
 [TOC]
 

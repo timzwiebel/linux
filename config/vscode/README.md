@@ -1,4 +1,4 @@
-# Visual Studio Code / Code - OSS / VSCodium
+# Visual Studio Code / Code - OSS / VSCodium Configuration
 
 [TOC]
 
