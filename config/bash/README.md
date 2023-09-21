@@ -9,3 +9,7 @@ export PATH="${PATH}:${HOME}/linux/bin"
 
 source ~/linux/config/bash/.bashrc
 ```
+
+
+# Links
+- [Shell Libraries](../../lib/shell/README.md)

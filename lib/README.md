@@ -10,3 +10,7 @@ necessary.
 
 Scripts outside of this repository should reference these using the full path
 (e.g., `${HOME}/linux/lib/<file>`).
+
+
+# Libraries
+- [Shell](shell/README.md)
