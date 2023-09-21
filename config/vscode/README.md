@@ -1,11 +1,12 @@
 # Visual Studio Code / Code - OSS / VSCodium Configuration
-
 [TOC]
+
 
 # Install
 ```shell
 ln -s ../../../linux/config/vscode/settings.json ~/.config/Code\ -\ OSS/User/settings.json
 ```
+
 
 # Links
 - Releases:
@@ -20,6 +21,7 @@ ln -s ../../../linux/config/vscode/settings.json ~/.config/Code\ -\ OSS/User/set
     with the official Microsoft-branded release)
   - [Open VSX Registry](https://open-vsx.org): a vendor-neutral open-source
     alternative to the Visual Studio Marketplace
+
 
 # Extensions
 - General:

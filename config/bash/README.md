@@ -1,6 +1,6 @@
 # Bash Configuration
-
 [TOC]
+
 
 # Install
 Add the following to `~/.bashrc`:
