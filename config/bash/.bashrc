@@ -1,4 +1,4 @@
-# https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html
+# https://man.archlinux.org/man/bash.1#set~2
 set -o nounset
 set -o noclobber
 set -o pipefail
