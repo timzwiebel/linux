@@ -35,6 +35,7 @@
   "svelte.plugin.svelte.format.config.singleQuote": true,
 
   // Appearance settings:
+  "editor.fontFamily": "'Ubuntu Mono', 'monospace'",
   "window.zoomLevel": 1,
   "workbench.tree.indent": 18,
   "workbench.tree.renderIndentGuides": "always",
