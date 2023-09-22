@@ -3,11 +3,14 @@
 
 
 # Install
-> **IMPORTANT:** The `.gitconfig` file in this repository uses my name/email
-> address. You should use your own name/email address.
+> **IMPORTANT:** The `.gitconfig` file in this repository uses **my** name/email
+> address. You should use **your own** name/email address. Therefore, it's
+> probably not useful for anyone else to use much from this `config/git`
+> directory directly. But it might be helpful as a template for your own Git
+> configuration.
 
 ```shell
-ln -s linux/config/git/.gitconfig ~/.gitconfig
+ln -s "${TIMZWIEBEL_LINUX}/config/git/.gitconfig" ~/.gitconfig
 ```
 
 > **TIP:** If you want to split your Git config into multiple files and/or use

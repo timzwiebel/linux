@@ -83,8 +83,8 @@ _git_branch_name() {
 }
 
 PS1="$(
-  source "${HOME}/linux/lib/shell/control_sequence.sh"
-  source "${HOME}/linux/lib/shell/bash_prompt.sh"
+  source "${TIMZWIEBEL_LINUX}/lib/shell/control_sequence.sh"
+  source "${TIMZWIEBEL_LINUX}/lib/shell/bash_prompt.sh"
 
   make_prompt() {
     local -r jobs_text="jobs: ${BASH_PROMPT_JOB_COUNT}"

@@ -4,7 +4,7 @@
 
 # Install
 ```shell
-ln -s ../../../linux/config/vscode/settings.json ~/.config/Code\ -\ OSS/User/settings.json
+ln -s "${TIMZWIEBEL_LINUX}/config/vscode/settings.json" ~/.config/Code\ -\ OSS/User/settings.json
 ```
 
 

@@ -3,11 +3,13 @@
 
 
 # Install
-Add the following to `~/.bashrc`:
+Add the following lines somewhere in your `~/.bashrc`:
 ```shell
-export PATH="${PATH}:${HOME}/linux/bin"
+export TIMZWIEBEL_LINUX="<path_to_this_repository>"  # e.g., "${HOME}/linux"
 
-source ~/linux/config/bash/.bashrc
+export PATH="${PATH}:${TIMZWIEBEL_LINUX}/bin"
+
+source "${TIMZWIEBEL_LINUX}/config/bash/.bashrc"
 ```
 
 

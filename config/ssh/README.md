@@ -3,11 +3,13 @@
 
 
 # Install
-> **IMPORTANT:** The `id_*.pub` files in this repository are my public SSH keys.
-> You should use your own public SSH keys.
+> **IMPORTANT:** The `id_*.pub` files in this repository are **my** public SSH
+> keys. You should use **your own** public SSH keys. Therefore, it's probably
+> not useful for anyone else to use much from this `config/ssh` directory. But
+> it might be helpful as a template for your own SSH configuration.
 
 ```shell
-ln -s linux/config/ssh ~/.ssh
+ln -s "${TIMZWIEBEL_LINUX}/config/ssh" ~/.ssh
 ```
 
 
