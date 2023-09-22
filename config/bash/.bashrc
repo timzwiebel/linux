@@ -19,7 +19,7 @@ alias ll='ls --all --format=long --classify=auto'
 
 # grep: use colors, recursive, and line numbers
 alias grep='grep --color=auto'
-alias rgrep='grep --color=auto --recursive --line-number'
+alias rgrep='grep --recursive --line-number --exclude-dir=".git" --exclude-dir=".history"'
 
 # https://wiki.archlinux.org/title/pacman#Usage
 alias pacman='pacman --color=auto'
