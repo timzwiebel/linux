@@ -1,6 +1,10 @@
-# linux
+# Linux Repository
 Configuration files and scripts for working with Linux:
-- [Bash](config/bash/README.md)
-- [Git](config/git/README.md)
-- [SSH](config/ssh/README.md)
-- [Virtual Studio Code](config/vscode/README.md)
+- [`bin`](bin/README.md): executable scripts
+- `config`: configuration files
+  - [`bash``](config/bash/README.md): Bash
+  - [`git`](config/git/README.md): Git
+  - [`ssh`](config/ssh/README.md): SSH
+  - [`vscode`](config/vscode/README.md): Virtual Studio Code
+- [`lib`](lib/README.md): scripting libraries
+  - [`shell`](lib/shell/README.md): Shell libraries
