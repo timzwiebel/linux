@@ -157,7 +157,7 @@ simplified by using aliases. Here is a list of the aliases in my `.gitconfig`:
   check-all = "!f() { echo 'Staged:' && git diff --check && echo '(no errors)'; echo -e '\\nUnstaged:' && git diff --check --staged && echo '(no errors)'; } && f"
 
   # Check and Commit
-  check-commit = "!f() { git check && git commit \"$@\"; } && f"
+  submit = "!f() { git check && git commit \"$@\"; } && f"
 
   # Diff
   d = difftool HEAD
@@ -191,12 +191,6 @@ simplified by using aliases. Here is a list of the aliases in my `.gitconfig`:
 
   # Status
   s = status
-
-  # Submit
-  submit = push --recurse-submodules=on-demand
-
-  # Sync
-  sync = pull --rebase --prune --recurse-submodules
 ```
 
 ## Referencing commits
@@ -241,12 +235,16 @@ git init [--initial-branch=<branch-name>]
 git clone <url> [<directory>]
 ```
 
-## Syncing
+## Pulling
 
-### Sync the local repository with the remote repository
+### Pull changes from the remote repository into the local repository
+**TL;DR:** generally use `git pull` with pruning, rebasing, and recursion (if
+you're using submodules).
 ```shell
-git sync  # git pull --rebase --prune --recurse-submodules
+git pull  # git pull --rebase --prune --recurse-submodules
 ```
+
+> TODO(timzwiebel): expand this section
 
 ## Status
 
@@ -406,15 +404,13 @@ section of the Pro Git book, available for free on the official Git website.
 > **TIP:** Remember to run `git diff --check [--staged]` before committing (see
 > [Tips](#tips))
 ```shell
-git check-commit  # git diff --check --staged && git commit
+git submit  # git diff --check --staged && git commit
 ```
 
 ### Submit all local commits to the remote repository
 > **TODO(timzwiebel):** add notes about how to submit changes to a submodule
 
-```shell
-git submit  # git push --recurse-submodules=on-demand
-```
+> TODO(timzwiebel): fix this section
 
 ## Rebasing
 

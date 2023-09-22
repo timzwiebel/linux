@@ -14,7 +14,7 @@
   check-all = "!f() { echo 'Staged:' && git diff --check && echo '(no errors)'; echo -e '\\nUnstaged:' && git diff --check --staged && echo '(no errors)'; } && f"
 
   # Check and Commit
-  check-commit = "!f() { git check && git commit \"$@\"; } && f"
+  submit = "!f() { git check && git commit \"$@\"; } && f"
 
   # Diff
   d = difftool HEAD
@@ -48,12 +48,6 @@
 
   # Status
   s = status
-
-  # Submit
-  submit = push --recurse-submodules=on-demand
-
-  # Sync
-  sync = pull --rebase --prune --recurse-submodules
 
 
 [commit]
