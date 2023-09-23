@@ -21,7 +21,8 @@ ln -s "${TIMZWIEBEL_LINUX}/config/git/.gitconfig" ~/.gitconfig
 
 
 # Basic Configuration
-Git settings are stored in `.gitconfig`. These are some of the basic ones:
+Git settings are stored in `~/.gitconfig`. Here is an example of a basic
+`.gitconfig`:
 ```
 [core]
   editor = vim
@@ -38,10 +39,9 @@ with remote repositories as well as signing your commits and tags so that they
 can be verified.
 
 ## Authenticating
-Upload your public ssh key to your account on your repository host
-(e.g.,GitHub/GitLab). After that, simply use the "SSH" URL when cloning
-repositories (**not** the one that starts with `https`). It should look
-something like this:
+Upload your public SSH key to your account on your repository host (e.g.,
+GitHub/GitLab). After that, simply use the "SSH" URL when cloning repositories
+(**not** the one that starts with `https`). It should look something like this:
 ```
 git@github.com:johndoe/myrepository.git
 ```
@@ -50,7 +50,8 @@ git@github.com:johndoe/myrepository.git
 Signing commits and tags allows them to be verified
 ([GitHub](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification),
 [GitLab](https://docs.gitlab.com/ee/user/project/repository/signed_commits)).
-This is an example `.gitconfig` set up for signing with SSH keys:
+This is an example `.gitconfig` set up for signing both commits and tags with
+SSH keys:
 ```
 [commit]
   gpgSign = true
@@ -207,11 +208,11 @@ There are several ways to reference a specific commit in a `git` command:
 
 ### Start a new local repository
 ```shell
-git init [--initial-branch=<branch-name>]
+git init [--initial-branch=<branch_name>]
 ```
 
 > **TIP:** You can set a default branch name for `git init` in your
-> `.gitconfig`:
+> `.gitconfig`. For example:
 > ```
 > [init]
 >   defaultBranch = main
@@ -349,6 +350,11 @@ git bd <branch>  # git branch --delete <branch>
   ```
 
 ## Diffing changes
+`git diff` will use a pager to show read-only diffs. `git difftool` will use
+whatever tool(s) you specify. See
+[Optional: Better Diffs/Merges](#optional-better-diffsmerges) for more
+information on specifying a diff/merge tool.
+
 - Diff all staged files against local HEAD:
   ```shell
   git d-staged  # git difftool --dir-diff --staged
@@ -371,7 +377,7 @@ git bd <branch>  # git branch --delete <branch>
 
 ## Submitting changes
 
-### Tips
+### Tips for submitting
 Before going into the specifics, it's helpful to read through the
 [Contributing to a Project](https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project)
 section of the Pro Git book, available for free on the official Git website.
@@ -402,7 +408,7 @@ section of the Pro Git book, available for free on the official Git website.
 
 ### Commit all staged files to the local repository
 > **TIP:** Remember to run `git diff --check [--staged]` before committing (see
-> [Tips](#tips))
+> [Tips](#tips-for-submitting))
 ```shell
 git submit  # git diff --check --staged && git commit
 ```
@@ -446,14 +452,14 @@ This command results in the following:
 > ```
 >       A---B---C topic
 >      /
-> D---E---A'---F master
+> D---E---A'---F main
 > ```
 >
-> Rebasing `topic` onto `master` will result in the following:
+> Rebasing `topic` onto `main` will result in the following:
 > ```
 >                B'---C' topic
 >               /
-> D---E---A'---F master
+> D---E---A'---F main
 > ```
 
 Some common examples of rebasing are shown below.
@@ -508,7 +514,7 @@ A---B---C---D  main
 
 ### Remove a range of commits
 > **NOTE:** This example is included for completeness, but it's probably easier
-> to use the technique described in
+> to use the "interactive mode" described in
 > [Rewrite commit history](#rewrite-commit-history).
 
 Example:
