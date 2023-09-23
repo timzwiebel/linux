@@ -236,16 +236,134 @@ git init [--initial-branch=<branch_name>]
 git clone <url> [<directory>]
 ```
 
-## Pulling
-
-### Pull changes from the remote repository into the local repository
-**TL;DR:** generally use `git pull` with pruning, rebasing, and recursion (if
-you're using submodules).
+## Pulling changes from the remote repository into the local repository
+**TL;DR:** generally use `git pull` with rebasing and pruning.
 ```shell
-git pull  # git pull --rebase --prune --recurse-submodules
+git pull  # git pull --rebase --prune --prune-tags
 ```
 
-> TODO(timzwiebel): expand this section
+> **TIP:** You can specify the behavior of `git pull` in your `.gitconfig`. For
+> example:
+> ```
+> [fetch]
+>   prune = true
+>   pruneTags = true
+>
+> [pull]
+>   rebase = true
+> ```
+
+### Pull: overview
+`git fetch` is used to download commit history from the remote repository. The
+local branch's commit history must then be updated with the new commit history
+from the remote repository. If the commit histories have diverged, the user
+needs to reconcile the differences with either `git merge` or `git rebase`.
+`git pull` conveniently combines these two operations (`fetch` +
+`merge`/`rebase`) into a single command.
+
+### Pull strategy: default
+By default, `git pull` will attempt to simply fast-forward the current branch to
+match the remote one. However, if the commit histories have diverged, the user
+needs to reconcile the differences by either merging or rebasing.
+
+### Pull strategy: merge
+By using `git pull --merge`, `git` will merge the two commit histories. For
+example:
+```
+      A---B---C main on origin
+     /
+D---E---F---G main
+    ^
+    origin/main in your repository
+```
+
+After `git pull --merge`, the local commit history will look like this:
+```
+      A---B---C origin/main
+     /         \
+D---E---F---G---H main
+```
+
+This scenario is very common. For example, imagine that Person 2 implements a
+feature in `A`, `B`, and `C`, and then Person 2 pushes those changes while
+Person 1 is still working on a different feature in `F` and `G`. When Person 1
+wants to ensure that their changes are compatible with Person 2's changes, they
+can run `git pull --merge`, resulting in the local commit history seen above.
+
+However, the resulting local commit history is probably **not** what you want.
+It's usually cleaner and simpler (in the long run) to keep the commit history
+linear in these scenarios. Imagine the branching/merging mess that will occur
+after pulling and merging multiple times during the development of a large
+feature. No one will want to review that pull request!
+
+After all, Person 1 didn't actively *choose* to base their change on `E`. The
+fact that `E` happened to be the tip of `main` when they started their work,
+that Person 2 happened to push their changes before Person 1 finished their
+work, and that Person 1 happened to `git pull --merge` when `C` was the tip of
+the remote repository is all purely coincidental. Put simply, **there's no
+reason to take all of the branches and merge commits from each time a developer
+decided to `git pull --merge` and preserve all of that in the public/remote
+commit history, making it more complex for reviewers and maintainers**.
+
+So instead of merging, Person 2 can (and should) rebase instead. Keep reading
+below.
+
+### Pull strategy: rebase
+As seen in the example in the section above, `git pull --merge` often leads to
+unnecessarily complex commit history that will end up becoming part of the
+public/remote commit history.
+
+As mentioned above, in the example, Person 1 should use `git pull --rebase` to
+keep the local commit history clean. Rebasing will also help keep the
+public/remote commit history more linear and easier to review/maintain when
+Person 1 does finally push their changes.
+
+Again using the example above, after a `git pull --rebase`, the local commit
+history will look like this:
+```
+D---E---A---B---C---F'---G' main
+                ^
+                origin/main
+```
+
+It might seem inconvenient to `git pull --rebase` instead of `git pull --merge`
+because you might find yourself repeating similar merge steps for each commit
+that needs to be rebased. However, the trade-off for one person having to do a
+little extra work is usually worth it in the long run because it allows for a
+clean linear commit history in the public/remote commit history. This simplifies
+everyone else's lives and makes it easier to review and maintain in the future.
+It also encourages good practices such as pulling often and splitting large
+changes into smaller more manageable pieces.
+
+Remember that you can specify the behavior of `git pull` in your `.gitconfig`.
+See the TIP callout in the
+[Pulling changes from the remote repository into the local repository](#pulling-changes-from-the-remote-repository-into-the-local-repository)
+section.
+
+There are a few caveats to consider when rebasing, described in the IMPORTANT
+and NOTE callouts below:
+
+> **IMPORTANT:** Rebasing rewrites commit history. Generally, you should avoid
+> rewriting commit history on branches that other people are working on.
+> (Therefore, you should generally try to only rebasing within your local commit
+> history and avoid rebasing anything within the public/remote commit history.)
+> Make sure you read the WARNING callout in the [Rebasing](#rebasing) section.
+
+> **NOTE:** When rebasing, `git` will put the newly rebased commits into a
+> single linear branch. You can control this behavior with `--rebase-merges`.
+> Unless you're rebasing a complicated commit history with branches/merges that
+> you want to preserve, you probably don't need to worry about this, but it is
+> worth mentioning so you aren't surprised.
+
+### Pruning
+When using `git fetch` or `git pull`, it usually makes sense to also prune your
+local repository so that it matches the remote repository. This can be done with
+the `--prune` and `--prune-tags` flags to `fetch`/`pull`.
+
+Remember that you can specify the behavior of `git fetch` (which also affects
+`git pull`) in your `.gitconfig`. See the TIP callout in the
+[Pulling changes from the remote repository into the local repository](#pulling-changes-from-the-remote-repository-into-the-local-repository)
+section.
 
 ## Status
 

@@ -75,6 +75,11 @@
   guiDefault = auto
 
 
+[fetch]
+  prune = true
+  pruneTags = true
+
+
 [gpg]
   format = ssh
 
@@ -102,6 +107,10 @@
 
 [mergetool "vimdiff"]
   layout = LOCAL,MERGED,REMOTE
+
+
+[pull]
+  rebase = true
 
 
 [tag]
