@@ -738,3 +738,59 @@ several smaller ones.
 
 When you're ready, use `git rebase --continue` to move to the next step. Or use
 `git rebase --abort` to revert back to the state before the rebase began.
+
+# Subprojects
+Git supports two methods for integrating child repositories into a parent
+repository: **subtrees** and **submodules**.
+
+## Subtrees
+Subtrees make a full copy of the child repository as a subdirectory of the
+parent repository and effectively merge the contents (and history) of the child
+repository into the parent repository. The subdirectory is treated like any
+other directory and git does not perform any special tracking. This means that
+the full contents of the child repository are duplicated in the parent
+repository. The full history of the child repository is also duplicated in the
+parent repository unless the `--squash` option is used during
+`git subtree add`, in which case the history of the child repository is squashed
+into a single commit.
+
+Example commands:
+```shell
+git subtree add --prefix=<subdirectory> <remote_url> <remote_branch>
+git subtree pull --prefix=<subdirectory> <remote_url> <remote_branch>
+git subtree push --prefix=<subdirector> <remote_url> <remote_branch>
+```
+
+> **TIP:** Have `git` track the remote repository so you can give it a name
+> instead of specifying the remote URL each time.
+>
+> ```shell
+> git remote add <name> <remote_url>
+> ```
+
+Subtrees can be useful when you don't own the child repository and are unlikely
+to push changes to it. Changes are only pulled when you explicitly rerun
+`git subtree pull` (since git doesn't keep track of the fact that the
+subdirectory came from somewhere else).
+
+## Submodules
+Submodules check out a repository in a subdirectory of the parent repository.
+Details about the child repository are stored in a `.gitmodules` file in the
+parent repository. Also, a reference to a particular commit in the child
+repository is stored in the parent repository.
+
+Example commands:
+```shell
+git submodule add [--branch <branch>] [--name <name>] <remote_url> <subdirectory>
+git submodule init <subdirectory>
+git submodule status <subdirectory>
+git submodule update [<options>] <subdirectory>
+```
+
+You can also `cd` into the subdirectory and run normal git commands (e.g., `git
+status`, `git pull`, `git commit`, `git push`, etc.).
+
+> **TIP:** Many `git` commands can be made recursive with the
+> `--recurse-submodules` flag. The behavior can also be specified in your
+> `.gitconfig` using either the `<command>.recruseSubmodules` or
+> `submodule.recurse` options.
