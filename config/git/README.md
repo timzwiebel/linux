@@ -70,6 +70,14 @@ SSH keys:
   signingKey = /home/johndoe/.ssh/id_ed25519.pub
 ```
 
+> **NOTE:** While `git` has supported
+> [signing pushes](https://stackoverflow.com/questions/27299355/why-does-git-need-signed-pushes)
+> since
+> [v2.2.0](https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.2.0.txt),
+> sadly as of September 2023, neither
+> [GitHub](https://github.com/orgs/community/discussions/23515) nor GitLab seem
+> to support signed pushes.
+
 
 # Optional: Better Diffs/Merges
 
@@ -495,7 +503,7 @@ information on specifying a diff/merge tool.
 
 ## Submitting changes
 
-### Tips for submitting
+### Tips for committing
 Before going into the specifics, it's helpful to read through the
 [Contributing to a Project](https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project)
 section of the Pro Git book, available for free on the official Git website.
@@ -526,15 +534,16 @@ section of the Pro Git book, available for free on the official Git website.
 
 ### Commit all staged files to the local repository
 > **TIP:** Remember to run `git diff --check [--staged]` before committing (see
-> [Tips](#tips-for-submitting))
+> [Tips](#tips-for-committing))
 ```shell
 git submit  # git diff --check --staged && git commit
 ```
 
 ### Submit all local commits to the remote repository
-> **TODO(timzwiebel):** add notes about how to submit changes to a submodule
-
-> TODO(timzwiebel): fix this section
+```shell
+git push
+```
+> TODO(timzwiebel): use `--atomic`?
 
 ## Rebasing
 
