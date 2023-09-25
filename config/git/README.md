@@ -25,11 +25,11 @@ Git settings are stored in `~/.gitconfig`. Here is an example of a basic
 `.gitconfig`:
 ```
 [core]
-  editor = vim
+	editor = vim
 
 [user]
-  email = john.doe@gmail.com
-  name = John Doe
+	email = john.doe@gmail.com
+	name = John Doe
 ```
 
 
@@ -54,20 +54,20 @@ This is an example `.gitconfig` set up for signing both commits and tags with
 SSH keys:
 ```
 [commit]
-  gpgSign = true
+	gpgSign = true
 
 [gpg]
-  format = ssh
+	format = ssh
 
 [gpg "ssh"]
-  allowedSignersFile = /home/johndoe/.ssh/allowed_signers
+	allowedSignersFile = /home/johndoe/.ssh/allowed_signers
 
 [tag]
-  forceSignAnnotated = true
-  gpgSign = true
+	forceSignAnnotated = true
+	gpgSign = true
 
 [user]
-  signingKey = /home/johndoe/.ssh/id_ed25519.pub
+	signingKey = /home/johndoe/.ssh/id_ed25519.pub
 ```
 
 > **NOTE:** While `git` has supported
@@ -87,12 +87,12 @@ If you want a better experience anywhere a pager is used on the command line
 [Delta](https://github.com/dandavison/delta). Here's an example `.gitconfig`:
 ```
 [core]
-  pager = delta
+	pager = delta
 
 [delta]
-  light = false
-  navigate = true
-  side-by-side = true
+	light = false
+	navigate = true
+	side-by-side = true
 ```
 
 ## Diff/Merge Tool
@@ -101,16 +101,16 @@ here's an example `.gitconfig` that uses
 [`vimdiff`](https://vimhelp.org/diff.txt.html):
 ```
 [diff]
-  tool = vimdiff
+	tool = vimdiff
 
 [difftool]
-  prompt = false
+	prompt = false
 
 [merge]
-  tool = vimdiff
+	tool = vimdiff
 
 [mergetool "vimdiff"]
-  layout = LOCAL,MERGED,REMOTE
+	layout = LOCAL,MERGED,REMOTE
 ```
 
 ## Diff/Merge GUI Tool
@@ -119,25 +119,25 @@ If you want to use a GUI for diffing and merging, consider using
 when a display is available, but falls back to `vimdiff`:
 ```
 [diff]
-  guitool = meld
-  tool = vimdiff
+	guitool = meld
+	tool = vimdiff
 
 [difftool]
-  prompt = false
-  guiDefault = auto
+	prompt = false
+	guiDefault = auto
 
 [merge]
-  guitool = meld
-  tool = vimdiff
+	guitool = meld
+	tool = vimdiff
 
 [mergetool]
-  guiDefault = auto
+	guiDefault = auto
 
 [mergetool "meld"]
-  useAutoMerge = auto
+	useAutoMerge = auto
 
 [mergetool "vimdiff"]
-  layout = LOCAL,MERGED,REMOTE
+	layout = LOCAL,MERGED,REMOTE
 ```
 
 
@@ -151,55 +151,55 @@ simplified by using aliases. Here is a list of the aliases in my `.gitconfig`:
 
 ```
 [alias]
-  # Add
-  add-all = add --all
-  add-all-tracked = add --update
+	# Add
+	add-all = add --all
+	add-all-tracked = add --update
 
-  # Branch Create/Delete/List/Switch
-  bc = switch --create
-  bd = branch --delete
-  bl = branch
-  bs = switch
+	# Branch Create/Delete/List/Switch
+	bc = switch --create
+	bd = branch --delete
+	bl = branch
+	bs = switch
 
-  # Check
-  check = diff --check --staged
-  check-all = "!f() { echo 'Staged:' && git diff --check && echo '(no errors)'; echo -e '\\nUnstaged:' && git diff --check --staged && echo '(no errors)'; } && f"
+	# Check
+	check = diff --check --staged
+	check-all = "!f() { echo 'Staged:' && git diff --check && echo '(no errors)'; echo -e '\\nUnstaged:' && git diff --check --staged && echo '(no errors)'; } && f"
 
-  # Check and Commit
-  submit = "!f() { git check && git commit \"$@\"; } && f"
+	# Check and Commit
+	submit = "!f() { git check && git commit \"$@\"; } && f"
 
-  # Diff
-  d = difftool HEAD
-  d-all = difftool --dir-diff HEAD
-  d-commit = difftool --dir-diff
-  d-staged = difftool --dir-diff --staged
+	# Diff
+	d = difftool HEAD
+	d-all = difftool --dir-diff HEAD
+	d-commit = difftool --dir-diff
+	d-staged = difftool --dir-diff --staged
 
-  # Discard Changes
-  discard = restore
-  discard-all = "!f() { git restore \"$(git root)\"; } && f"
+	# Discard Changes
+	discard = restore
+	discard-all = "!f() { git restore \"$(git root)\"; } && f"
 
-  # Graph
-  g = log --graph --abbrev-commit --pretty=oneline
-  g-all = g --all
-  g-full = log --graph --pretty=fuller --show-signature
-  g-full-all = g-full --all
+	# Graph
+	g = log --graph --abbrev-commit --pretty=oneline
+	g-all = g --all
+	g-full = log --graph --pretty=fuller --show-signature
+	g-full-all = g-full --all
 
-  # Log
-  l = log --abbrev-commit --pretty=oneline
-  l-full = log --pretty=fuller --show-signature
+	# Log
+	l = log --abbrev-commit --pretty=oneline
+	l-full = log --pretty=fuller --show-signature
 
-  # Resolve
-  resolve = mergetool
+	# Resolve
+	resolve = mergetool
 
-  # Remove
-  rem = restore --staged
-  rem-all = reset
+	# Remove
+	rem = restore --staged
+	rem-all = reset
 
-  # Root
-  root = rev-parse --show-toplevel
+	# Root
+	root = rev-parse --show-toplevel
 
-  # Status
-  s = status
+	# Status
+	s = status
 ```
 
 ## Referencing commits
@@ -223,7 +223,7 @@ git init [--initial-branch=<branch_name>]
 > `.gitconfig`. For example:
 > ```
 > [init]
->   defaultBranch = main
+> 	defaultBranch = main
 > ```
 >
 > Both
@@ -254,11 +254,11 @@ git pull  # git pull --rebase --prune --prune-tags
 > example:
 > ```
 > [fetch]
->   prune = true
->   pruneTags = true
+> 	prune = true
+> 	pruneTags = true
 >
 > [pull]
->   rebase = true
+> 	rebase = true
 > ```
 
 ### Pull: overview

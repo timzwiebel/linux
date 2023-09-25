@@ -1,124 +1,124 @@
 [alias]
-  # Add
-  add-all = add --all
-  add-all-tracked = add --update
+	# Add
+	add-all = add --all
+	add-all-tracked = add --update
 
-  # Branch Create/Delete/List/Switch
-  bc = switch --create
-  bd = branch --delete
-  bl = branch
-  bs = switch
+	# Branch Create/Delete/List/Switch
+	bc = switch --create
+	bd = branch --delete
+	bl = branch
+	bs = switch
 
-  # Check
-  check = diff --check --staged
-  check-all = "!f() { echo 'Staged:' && git diff --check && echo '(no errors)'; echo -e '\\nUnstaged:' && git diff --check --staged && echo '(no errors)'; } && f"
+	# Check
+	check = diff --check --staged
+	check-all = "!f() { echo 'Staged:' && git diff --check && echo '(no errors)'; echo -e '\\nUnstaged:' && git diff --check --staged && echo '(no errors)'; } && f"
 
-  # Check and Commit
-  submit = "!f() { git check && git commit \"$@\"; } && f"
+	# Check and Commit
+	submit = "!f() { git check && git commit \"$@\"; } && f"
 
-  # Diff
-  d = difftool HEAD
-  d-all = difftool --dir-diff HEAD
-  d-commit = difftool --dir-diff
-  d-staged = difftool --dir-diff --staged
+	# Diff
+	d = difftool HEAD
+	d-all = difftool --dir-diff HEAD
+	d-commit = difftool --dir-diff
+	d-staged = difftool --dir-diff --staged
 
-  # Discard Changes
-  discard = restore
-  discard-all = "!f() { git restore \"$(git root)\"; } && f"
+	# Discard Changes
+	discard = restore
+	discard-all = "!f() { git restore \"$(git root)\"; } && f"
 
-  # Graph
-  g = log --graph --abbrev-commit --pretty=oneline
-  g-all = g --all
-  g-full = log --graph --pretty=fuller --show-signature
-  g-full-all = g-full --all
+	# Graph
+	g = log --graph --abbrev-commit --pretty=oneline
+	g-all = g --all
+	g-full = log --graph --pretty=fuller --show-signature
+	g-full-all = g-full --all
 
-  # Log
-  l = log --abbrev-commit --pretty=oneline
-  l-full = log --pretty=fuller --show-signature
+	# Log
+	l = log --abbrev-commit --pretty=oneline
+	l-full = log --pretty=fuller --show-signature
 
-  # Resolve
-  resolve = mergetool
+	# Resolve
+	resolve = mergetool
 
-  # Remove
-  rem = restore --staged
-  rem-all = reset
+	# Remove
+	rem = restore --staged
+	rem-all = reset
 
-  # Root
-  root = rev-parse --show-toplevel
+	# Root
+	root = rev-parse --show-toplevel
 
-  # Status
-  s = status
+	# Status
+	s = status
 
 
 [commit]
-  gpgSign = true
+	gpgSign = true
 
 
 [core]
-  editor = vim
-  pager = delta
+	editor = vim
+	pager = delta
 
 
 [delta]
-  light = false
-  navigate = true
-  side-by-side = true
+	light = false
+	navigate = true
+	side-by-side = true
 
 
 [diff]
-  guitool = meld
-  tool = vimdiff
+	guitool = meld
+	tool = vimdiff
 
 
 [difftool]
-  prompt = false
-  guiDefault = auto
+	prompt = false
+	guiDefault = auto
 
 
 [fetch]
-  prune = true
-  pruneTags = true
+	prune = true
+	pruneTags = true
 
 
 [gpg]
-  format = ssh
+	format = ssh
 
 
 [gpg "ssh"]
-  allowedSignersFile = /home/timzwiebel/.ssh/allowed_signers
+	allowedSignersFile = /home/timzwiebel/.ssh/allowed_signers
 
 
 [init]
-  defaultBranch = main
+	defaultBranch = main
 
 
 [merge]
-  guitool = meld
-  tool = vimdiff
+	guitool = meld
+	tool = vimdiff
 
 
 [mergetool]
-  guiDefault = auto
+	guiDefault = auto
 
 
 [mergetool "meld"]
-  useAutoMerge = auto
+	useAutoMerge = auto
 
 
 [mergetool "vimdiff"]
-  layout = LOCAL,MERGED,REMOTE
+	layout = LOCAL,MERGED,REMOTE
 
 
 [pull]
-  rebase = true
+	rebase = true
 
 
 [tag]
-  forceSignAnnotated = true
-  gpgSign = true
+	forceSignAnnotated = true
+	gpgSign = true
 
 
 [user]
-  email = timzwiebel@gmail.com
-  name = Tim Zwiebel
-  signingKey = /home/timzwiebel/.ssh/id_ed25519.pub
+	email = timzwiebel@gmail.com
+	name = Tim Zwiebel
+	signingKey = /home/timzwiebel/.ssh/id_ed25519.pub
