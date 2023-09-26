@@ -250,8 +250,8 @@ git clone <url> [<directory>]
 git pull  # git pull --rebase --prune --prune-tags
 ```
 
-> **TIP:** You can specify the behavior of `git pull` in your `.gitconfig`. For
-> example:
+> **TIP:** You can specify the default behavior of `git pull` in your
+> `.gitconfig`. For example:
 > ```
 > [fetch]
 > 	prune = true
@@ -343,8 +343,8 @@ everyone else's lives and makes it easier to review and maintain in the future.
 It also encourages good practices such as pulling often and splitting large
 changes into smaller more manageable pieces.
 
-Remember that you can specify the behavior of `git pull` in your `.gitconfig`.
-See the TIP callout in the
+Remember that you can specify the default behavior of `git pull` in your
+`.gitconfig`. See the TIP callout in the
 [Pulling changes from the remote repository into the local repository](#pulling-changes-from-the-remote-repository-into-the-local-repository)
 section.
 
@@ -368,8 +368,8 @@ When using `git fetch` or `git pull`, it usually makes sense to also prune your
 local repository so that it matches the remote repository. This can be done with
 the `--prune` and `--prune-tags` flags to `fetch`/`pull`.
 
-Remember that you can specify the behavior of `git fetch` (which also affects
-`git pull`) in your `.gitconfig`. See the TIP callout in the
+Remember that you can specify the default behavior of `git fetch` (which also
+affects `git pull`) in your `.gitconfig`. See the TIP callout in the
 [Pulling changes from the remote repository into the local repository](#pulling-changes-from-the-remote-repository-into-the-local-repository)
 section.
 
@@ -791,6 +791,6 @@ You can also `cd` into the subdirectory and run normal git commands (e.g., `git
 status`, `git pull`, `git commit`, `git push`, etc.).
 
 > **TIP:** Many `git` commands can be made recursive with the
-> `--recurse-submodules` flag. The behavior can also be specified in your
-> `.gitconfig` using either the `<command>.recruseSubmodules` or
+> `--recurse-submodules` flag. The default behavior can also be specified in
+> your `.gitconfig` using either the `<command>.recruseSubmodules` or
 > `submodule.recurse` options.
