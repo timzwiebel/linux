@@ -1,0 +1,17 @@
+#!/bin/bash
+#
+# Print the arguments passed to this command.
+#
+# Arguments:
+#   $1...: the arguments to print
+
+# https://man.archlinux.org/man/bash.1#set~2
+set -o nounset
+set -o noclobber
+set -o pipefail
+set -o errexit
+
+echo "#: $#"
+for ((arg = 0; arg <= $#; ++arg)); do
+  echo "${arg}: ${!arg}"
+done
