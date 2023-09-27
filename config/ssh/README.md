@@ -3,10 +3,11 @@
 
 
 # Install
-> **IMPORTANT:** The `id_*.pub` files in this repository are **my** public SSH
-> keys. You should use **your own** public SSH keys. Therefore, it's probably
-> not useful for anyone else to use much from this `config/ssh` directory. But
-> it might be helpful as a template for your own SSH configuration.
+> **&#10071;&#65039;<!-- red exclamation mark emoji --> IMPORTANT:** The
+> `id_*.pub` files in this repository are **my** public SSH keys. You should use
+> **your own** public SSH keys. Therefore, it's probably not useful for anyone
+> else to use much from this `config/ssh` directory. But it might be helpful as
+> a template for your own SSH configuration.
 
 ```shell
 ln -s "${TIMZWIEBEL_LINUX}/config/ssh" ~/.ssh
@@ -22,9 +23,9 @@ This will generate a private key file `id_ed25519` and a public key file
 `id_ed25519.pub` in the `~/.ssh/` directory using the Ed25519 elliptic curve
 signature with 100 "rounds" and your email address as the "comment".
 
-> **TIP:** Append your new public key into your `~/.ssh/allowed_signers` file
-> (create the file if it doesn't exist). This allows your signature to be
-> verified. Example `allowed_signers` file:
+> **&#8505;&#65039;<!-- information emoji --> TIP:** Append your new public key
+> into your `~/.ssh/allowed_signers` file (create the file if it doesn't exist).
+> This allows your signature to be verified. Example `allowed_signers` file:
 > ```
 > <your_email> ssh-ed25519 AAA...
 > ```

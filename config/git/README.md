@@ -3,20 +3,20 @@
 
 
 # Install
-> **IMPORTANT:** The `.gitconfig` file in this repository uses **my** name/email
-> address. You should use **your own** name/email address. Therefore, it's
-> probably not useful for anyone else to use much from this `config/git`
-> directory directly. But it might be helpful as a template for your own Git
-> configuration.
+> **&#10071;&#65039;<!-- red exclamation mark emoji --> IMPORTANT:** The
+> `.gitconfig` file in this repository uses **my** name/email address. You
+> should use **your own** name/email address. Therefore, it's probably not
+> useful for anyone else to use much from this `config/git` directory directly.
+> But it might be helpful as a template for your own Git configuration.
 
 ```shell
 ln -s "${TIMZWIEBEL_LINUX}/config/git/.gitconfig" ~/.gitconfig
 ```
 
-> **TIP:** If you want to split your Git config into multiple files and/or use
-> parts of your Git config conditionally (e.g., enable some aliases only when
-> working in a particular repository), then you can use `[include]` and
-> `[includeIf]` sections
+> **&#8505;&#65039;<!-- information emoji --> TIP:** If you want to split your
+> Git config into multiple files and/or use parts of your Git config
+> conditionally (e.g., enable some aliases only when working in a particular
+> repository), then you can use `[include]` and `[includeIf]` sections
 > ([examples](https://git-scm.com/docs/git-config#_example)).
 
 
@@ -70,7 +70,7 @@ SSH keys:
 	signingKey = /home/johndoe/.ssh/id_ed25519.pub
 ```
 
-> **NOTE:** While `git` has supported
+> **&#8505;&#65039;<!-- information emoji --> NOTE:** While `git` has supported
 > [signing pushes](https://stackoverflow.com/questions/27299355/why-does-git-need-signed-pushes)
 > since
 > [v2.2.0](https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/2.2.0.txt),
@@ -145,9 +145,10 @@ when a display is available, but falls back to `vimdiff`:
 Below are the most common commands used while working with `git`. These can be
 simplified by using aliases. Here is a list of the aliases in my `.gitconfig`:
 
-> **IMPORTANT:** These commands will behave differently depending on the
-> settings in your `.gitconfig` and/or the command line flags used. Be sure to
-> read each section about the various commands for a full understanding.
+> **&#10071;&#65039;<!-- red exclamation mark emoji --> IMPORTANT:** These
+> commands will behave differently depending on the settings in your
+> `.gitconfig` and/or the command line flags used. Be sure to read each section
+> about the various commands for a full understanding.
 
 ```
 [alias]
@@ -219,8 +220,8 @@ There are several ways to reference a specific commit in a `git` command:
 git init [--initial-branch=<branch_name>]
 ```
 
-> **TIP:** You can set a default branch name for `git init` in your
-> `.gitconfig`. For example:
+> **&#8505;&#65039;<!-- information emoji --> TIP:** You can set a default
+> branch name for `git init` in your `.gitconfig`. For example:
 > ```
 > [init]
 > 	defaultBranch = main
@@ -237,8 +238,8 @@ git init [--initial-branch=<branch_name>]
 > change `git` to also use `main` by default.
 
 ### Download an existing remote repository
-> **TIP:** Remember to prefer using the "SSH" URL, **not** the one that starts
-> with `https` (see [SSH](#ssh))
+> **&#8505;&#65039;<!-- information emoji --> TIP:** Remember to prefer using
+> the "SSH" URL, **not** the one that starts with `https` (see [SSH](#ssh))
 
 ```shell
 git clone <url> [<directory>]
@@ -250,8 +251,8 @@ git clone <url> [<directory>]
 git pull  # git pull --rebase --prune --prune-tags
 ```
 
-> **TIP:** You can specify the default behavior of `git pull` in your
-> `.gitconfig`. For example:
+> **&#8505;&#65039;<!-- information emoji --> TIP:** You can specify the default
+> behavior of `git pull` in your `.gitconfig`. For example:
 > ```
 > [fetch]
 > 	prune = true
@@ -351,17 +352,19 @@ section.
 There are a few caveats to consider when rebasing, described in the IMPORTANT
 and NOTE callouts below:
 
-> **IMPORTANT:** Rebasing rewrites commit history. Generally, you should avoid
-> rewriting commit history on branches that other people are working on.
-> (Therefore, you should generally try to only rebasing within your local commit
-> history and avoid rebasing anything within the public/remote commit history.)
-> Make sure you read the WARNING callout in the [Rebasing](#rebasing) section.
+> **&#10071;&#65039;<!-- red exclamation mark emoji --> IMPORTANT:** Rebasing
+> rewrites commit history. Generally, you should avoid rewriting commit history
+> on branches that other people are working on. (Therefore, you should generally
+> try to only rebasing within your local commit history and avoid rebasing
+> anything within the public/remote commit history.) Make sure you read the
+> WARNING callout in the [Rebasing](#rebasing) section.
 
-> **NOTE:** When rebasing, `git` will put the newly rebased commits into a
-> single linear branch. You can control this behavior with `--rebase-merges`.
-> Unless you're rebasing a complicated commit history with branches/merges that
-> you want to preserve, you probably don't need to worry about this, but it is
-> worth mentioning so you aren't surprised.
+> **&#8505;&#65039;<!-- information emoji --> NOTE:** When rebasing, `git` will
+> put the newly rebased commits into a single linear branch. You can control
+> this behavior with `--rebase-merges`. Unless you're rebasing a complicated
+> commit history with branches/merges that you want to preserve, you probably
+> don't need to worry about this, but it is worth mentioning so you aren't
+> surprised.
 
 ### Pruning
 When using `git fetch` or `git pull`, it usually makes sense to also prune your
@@ -533,7 +536,8 @@ section of the Pro Git book, available for free on the official Git website.
   ```
 
 ### Commit all staged files to the local repository
-> **TIP:** Remember to run `git diff --check [--staged]` before committing (see
+> **&#8505;&#65039;<!-- information emoji --> TIP:** Remember to run
+> `git diff --check [--staged]` before committing (see
 > [Tips](#tips-for-committing))
 ```shell
 git submit  # git diff --check --staged && git commit
@@ -547,10 +551,11 @@ git push
 
 ## Rebasing
 
-> **WARNING:** `git rebase` rewrites the commit history. It **can be harmful**
-> to do it in shared branches. It can cause complex and hard-to-resolve merge
-> conflicts. Therefore, it should generally only be used on commits that haven't
-> yet been pushed to a shared repository.
+> **&#9888;&#65039;<!-- warning emoji --> WARNING:** `git rebase` rewrites the
+> commit history. It **can be harmful** to do it in shared branches. It can
+> cause complex and hard-to-resolve merge conflicts. Therefore, it should
+> generally only be used on commits that haven't yet been pushed to a shared
+> repository.
 >
 > If you do end up rewriting commit history in a shared repository, you'll need
 > to force push. When you do, ensure that you use `--force-with-lease` instead
@@ -574,8 +579,8 @@ This command results in the following:
     current branch (inclusive) onto `<upstream_commit>` (or onto
     `<new_base_commit>` if `--onto` was used).
 
-> **IMPORTANT:** Note that any commits already present upstream will be skipped.
-> For example:
+> **&#10071;&#65039;<!-- red exclamation mark emoji --> IMPORTANT:** Note that
+> any commits already present upstream will be skipped. For example:
 > ```
 >       A---B---C topic
 >      /
@@ -640,9 +645,9 @@ A---B---C---D  main
 ```
 
 ### Remove a range of commits
-> **NOTE:** This example is included for completeness, but it's probably easier
-> to use the "interactive mode" described in
-> [Rewrite commit history](#rewrite-commit-history).
+> **&#8505;&#65039;<!-- information emoji --> NOTE:** This example is included
+> for completeness, but it's probably easier to use the "interactive mode"
+> described in [Rewrite commit history](#rewrite-commit-history).
 
 Example:
 ```
@@ -732,9 +737,10 @@ If you `git commit` without `--amend`, you will add new commits to the commit
 history. For example, this can be useful for splitting a large commit into
 several smaller ones.
 
-> **TIP:** In between steps, make sure that everything builds and that tests
-> pass before proceeding to the next step. Add a new line containing the `break`
-> command to add extra interrupts to the rebase.
+> **&#8505;&#65039;<!-- information emoji --> TIP:** In between steps, make sure
+> that everything builds and that tests pass before proceeding to the next step.
+> Add a new line containing the `break` command to add extra interrupts to the
+> rebase.
 
 When you're ready, use `git rebase --continue` to move to the next step. Or use
 `git rebase --abort` to revert back to the state before the rebase began.
@@ -761,8 +767,9 @@ git subtree pull --prefix=<subdirectory> <remote_url> <remote_branch>
 git subtree push --prefix=<subdirector> <remote_url> <remote_branch>
 ```
 
-> **TIP:** Have `git` track the remote repository so you can give it a name
-> instead of specifying the remote URL each time.
+> **&#8505;&#65039;<!-- information emoji --> TIP:** Have `git` track the remote
+> repository so you can give it a name instead of specifying the remote URL each
+> time.
 >
 > ```shell
 > git remote add <name> <remote_url>
@@ -790,7 +797,7 @@ git submodule update [<options>] <subdirectory>
 You can also `cd` into the subdirectory and run normal git commands (e.g., `git
 status`, `git pull`, `git commit`, `git push`, etc.).
 
-> **TIP:** Many `git` commands can be made recursive with the
-> `--recurse-submodules` flag. The default behavior can also be specified in
-> your `.gitconfig` using either the `<command>.recruseSubmodules` or
-> `submodule.recurse` options.
+> **&#8505;&#65039;<!-- information emoji --> TIP:** Many `git` commands can be
+> made recursive with the `--recurse-submodules` flag. The default behavior can
+> also be specified in your `.gitconfig` using either the
+> `<command>.recruseSubmodules` or `submodule.recurse` options.
