@@ -5,9 +5,11 @@
 # Install
 > **&#10071;&#65039;<!-- red exclamation mark emoji --> IMPORTANT:** The
 > `id_*.pub` files in this repository are **my** public SSH keys. You should use
-> **your own** public SSH keys. Therefore, it's probably not useful for anyone
-> else to use much from this `config/ssh` directory. But it might be helpful as
-> a template for your own SSH configuration.
+> **your own** public SSH keys.
+>
+> Therefore, it's probably not very useful for anyone else to use any files from
+> this `config/ssh` directory. However, it might be helpful as a template for
+> your own SSH configuration.
 
 ```shell
 ln -s "${TIMZWIEBEL_LINUX}/config/ssh" ~/.ssh

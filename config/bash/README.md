@@ -2,7 +2,7 @@
 [TOC]
 
 
-# Install
+# Install `~/.bashrc`
 Add the following lines somewhere in your `~/.bashrc`:
 ```shell
 export TIMZWIEBEL_LINUX="<path_to_this_repository>"  # e.g., "${HOME}/linux"

@@ -2,12 +2,14 @@
 [TOC]
 
 
-# Install
+# Install `~/.gitconfig`
 > **&#10071;&#65039;<!-- red exclamation mark emoji --> IMPORTANT:** The
 > `.gitconfig` file in this repository uses **my** name/email address. You
-> should use **your own** name/email address. Therefore, it's probably not
-> useful for anyone else to use much from this `config/git` directory directly.
-> But it might be helpful as a template for your own Git configuration.
+> should use **your own** name/email address.
+>
+> Therefore, it's probably not useful for anyone else to use this
+> `config/git/.gitconfig` file directly. However, it might be helpful as a
+> template for your own `.gitconfig` file.
 
 ```shell
 ln -s "${TIMZWIEBEL_LINUX}/config/git/.gitconfig" ~/.gitconfig
