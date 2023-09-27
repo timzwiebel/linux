@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Call `find` while excluding `_EXCLUDED_SEARCH_DIRS`.
+# Call `find` while excluding `EXCLUDED_SEARCH_DIRS`.
 #
 # Arguments:
 #   $1: the starting point to pass to `find`
@@ -16,5 +16,5 @@ source "${TIMZWIEBEL_LINUX}/lib/shell/excluded_search_dirs.sh"
 
 find -L \
     "$1" \
-    $(printf -- ' -not -path */%s/*' "${_EXCLUDED_SEARCH_DIRS[@]}") \
+    $(printf -- ' -not -path */%s/*' "${EXCLUDED_SEARCH_DIRS[@]}") \
     "${@:2}"

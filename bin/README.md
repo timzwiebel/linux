@@ -9,5 +9,5 @@ users and therefore should be added to `PATH` (see
 
 # Binaries
 - `print_args`: print the arguments passed to this command
-- `rfind`: call `find` while excluding `_EXCLUDED_SEARCH_DIRS`
-- `rgrep`: call `grep` while excluding `_EXCLUDED_SEARCH_DIRS`
+- `rfind`: call `find` while excluding `EXCLUDED_SEARCH_DIRS`
+- `rgrep`: call `grep` while excluding `EXCLUDED_SEARCH_DIRS`

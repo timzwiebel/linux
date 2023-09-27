@@ -1,10 +1,10 @@
-# Library for defining `_EXCLUDED_SEARCH_DIRS``, an array of directories to be
+# Library for defining `EXCLUDED_SEARCH_DIRS``, an array of directories to be
 # excluded while searching.
 #
 # Requires: none
 
-_EXCLUDED_SEARCH_DIRS=('.git')
-_EXCLUDED_SEARCH_DIRS+=('.history')
-_EXCLUDED_SEARCH_DIRS+=('.svelte-kit')
-_EXCLUDED_SEARCH_DIRS+=('node_modules')
-readonly _EXCLUDED_SEARCH_DIRS
+EXCLUDED_SEARCH_DIRS=('.git')
+EXCLUDED_SEARCH_DIRS+=('.history')
+EXCLUDED_SEARCH_DIRS+=('.svelte-kit')
+EXCLUDED_SEARCH_DIRS+=('node_modules')
+readonly EXCLUDED_SEARCH_DIRS

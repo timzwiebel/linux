@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Call `grep` while excluding `_EXCLUDED_SEARCH_DIRS`.
+# Call `grep` while excluding `EXCLUDED_SEARCH_DIRS`.
 #
 # Arguments:
 #   $1...: the arguments to pass to `grep`
@@ -14,5 +14,5 @@ set -o errexit
 source "${TIMZWIEBEL_LINUX}/lib/shell/excluded_search_dirs.sh"
 
 grep --color=auto --recursive --line-number \
-    $(printf -- ' --exclude-dir=%s' "${_EXCLUDED_SEARCH_DIRS[@]}") \
+    $(printf -- ' --exclude-dir=%s' "${EXCLUDED_SEARCH_DIRS[@]}") \
     "$@"
