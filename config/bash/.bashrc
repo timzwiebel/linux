@@ -6,22 +6,26 @@ set -o pipefail
 
 # Aliases
 
+# sudo:
 # https://wiki.archlinux.org/title/sudo#Reduce_the_number_of_times_you_have_to_type_a_password
 alias sudo='sudo --validate && sudo '
 
-# Prompt before overwriting files
+# cp & mv:
 alias cp='cp --interactive'
 alias mv='mv --interactive'
 
-# ls: use colors, long format, and indicators on file types
+# ls:
 alias ls='ls --color=auto'
 alias ll='ls --all --format=long --classify=auto'
 
-# grep: use colors, recursive, and line numbers
-alias grep='grep --color=auto'
-alias rgrep='grep --recursive --line-number --exclude-dir=".git" --exclude-dir=".history"'
+# find:
+# See also: bin/rfind
 
-# https://wiki.archlinux.org/title/pacman#Usage
+# grep:
+alias grep='grep --color=auto'
+# See also: bin/rgrep
+
+# pacman: https://wiki.archlinux.org/title/pacman#Usage
 alias pacman='pacman --color=auto'
 alias pacman-check='pacman --query --check --check'
 alias pacman-clean-cache='pacman --sync --clean'

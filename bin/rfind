@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+# Call `find` while excluding `_EXCLUDED_SEARCH_DIRS`.
+#
+# Arguments:
+#   $1: the starting point to pass to `find`
+#   $2...: the expression to pass to `find`
+
+# https://man.archlinux.org/man/bash.1#set~2
+set -o nounset
+set -o noclobber
+set -o pipefail
+set -o errexit
+
+source "${TIMZWIEBEL_LINUX}/lib/shell/excluded_search_dirs.sh"
+
+find -L \
+    "$1" \
+    $(printf -- ' -not -path */%s/*' "${_EXCLUDED_SEARCH_DIRS[@]}") \
+    "${@:2}"

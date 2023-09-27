@@ -1,0 +1,18 @@
+#!/bin/bash
+#
+# Call `grep` while excluding `_EXCLUDED_SEARCH_DIRS`.
+#
+# Arguments:
+#   $1...: the arguments to pass to `grep`
+
+# https://man.archlinux.org/man/bash.1#set~2
+set -o nounset
+set -o noclobber
+set -o pipefail
+set -o errexit
+
+source "${TIMZWIEBEL_LINUX}/lib/shell/excluded_search_dirs.sh"
+
+grep --color=auto --recursive --line-number \
+    $(printf -- ' --exclude-dir=%s' "${_EXCLUDED_SEARCH_DIRS[@]}") \
+    "$@"
