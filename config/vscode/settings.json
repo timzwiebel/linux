@@ -12,12 +12,12 @@
   // Ruler settings:
   "editor.rulers": [
     80,
-    100,
+    100
   ],
 
   // Word wrap settings:
   "[markdown]": {
-    "editor.wordWrap": "off",
+    "editor.wordWrap": "off"
   },
 
   // Quote settings:
@@ -55,6 +55,6 @@
     "statusBar.border": "#797979",
     "tab.lastPinnedBorder": "#ffffff",
     // Make the highlight color of other matches easier to see.
-    "editor.selectionHighlightBackground": "#add6ff4d",
-  },
+    "editor.selectionHighlightBackground": "#add6ff4d"
+  }
 }
