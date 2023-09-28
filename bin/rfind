@@ -3,8 +3,18 @@
 # Call `find` while excluding `EXCLUDED_SEARCH_DIRS`.
 #
 # Arguments:
-#   $1: the starting point to pass to `find`
-#   $2...: the expression to pass to `find`
+#   $1...: the arguments (see below)
+#       1.  `-L` is always passed first to follow symlinks by default
+#       2.  then anything before an optional `--` argument
+#       3.  then the first of the remaining arguments
+#       4.  then the `EXCLUDED_SEARCH_DIRS` as `-not -path <dir>`
+#       5.  then the remaining arguments
+#
+#       For example:
+#       - `rfind ./src -type f` becomes
+#         `find -L ./src <excluded_search_dirs> -type f`
+#       - `rfind -P -- ./src -type f` becomes
+#         `find -L -P ./src <excluded_search_dirs> -type f`
 
 # https://man.archlinux.org/man/bash.1#set~2
 set -o nounset
@@ -14,7 +24,25 @@ set -o errexit
 
 source "${TIMZWIEBEL_LINUX}/lib/shell/excluded_search_dirs.sh"
 
-find -L \
-    "$1" \
-    $(printf -- ' -not -path */%s/*' "${EXCLUDED_SEARCH_DIRS[@]}") \
-    "${@:2}"
+pre_args=()
+post_args=()
+for arg in "$@"; do
+  if [[ "${arg}" == '--' ]]; then
+    pre_args=("${post_args[@]}")
+    post_args=()
+  else
+    post_args+=("${arg}")
+  fi
+done
+
+excludes=()
+for dir in "${EXCLUDED_SEARCH_DIRS[@]}"; do
+  excludes+=('-not' '-path' "*/${dir}/*")
+done
+
+find \
+    -L \
+    "${pre_args[@]}" \
+    "${post_args[0]}" \
+    "${excludes[@]}" \
+    "${post_args[@]:1}"

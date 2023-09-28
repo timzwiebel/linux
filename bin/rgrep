@@ -13,6 +13,9 @@ set -o errexit
 
 source "${TIMZWIEBEL_LINUX}/lib/shell/excluded_search_dirs.sh"
 
-grep --color=auto --recursive --line-number \
-    $(printf -- ' --exclude-dir=%s' "${EXCLUDED_SEARCH_DIRS[@]}") \
+grep \
+    --color=auto \
+    --recursive \
+    --line-number \
+    "${EXCLUDED_SEARCH_DIRS[@]/#/'--exclude-dir='}" \
     "$@"
