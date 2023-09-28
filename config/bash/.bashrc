@@ -10,9 +10,17 @@ set -o pipefail
 # https://wiki.archlinux.org/title/sudo#Reduce_the_number_of_times_you_have_to_type_a_password
 alias sudo='sudo --validate && sudo '
 
-# cp & mv:
+# Make commands interactive so they confirm operations that might be dangerous
+# (e.g., prompt before overwrite).
 alias cp='cp --interactive'
+alias fuser='fuser --interactive'
+alias killall='killall --interactive'
+alias ln='ln --interactive'
 alias mv='mv --interactive'
+alias rename='rename --interactive'
+alias rm='rm --interactive'
+alias tar='tar --interactive'
+alias xargs='xargs --interactive'
 
 # ls:
 alias ls='ls --color=auto'
