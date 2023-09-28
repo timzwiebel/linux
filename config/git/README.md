@@ -80,6 +80,12 @@ SSH keys:
 	signingKey = ~/.ssh/id_ed25519.pub
 ```
 
+> **&#8505;&#65039;<!-- information emoji --> NOTE:** If you sign commits/tags
+> from the command line using the `-S[<keyid>]`/`--gpg-sign[=<keyid>]` flags
+> (instead of configuring your `.gitconfig` file as shown above), `[<keyid>]`
+> will default to using your email address (from `user.email` in your
+> `~/.gitconfig`) as the `keyid` in order to locate the proper SSH key to use.
+
 > **&#8505;&#65039;<!-- information emoji --> NOTE:** While `git` has supported
 > [signing pushes](https://stackoverflow.com/questions/27299355/why-does-git-need-signed-pushes)
 > since
@@ -550,7 +556,7 @@ section of the Pro Git book, available for free on the official Git website.
 > `git diff --check [--staged]` before committing (see
 > [Tips](#tips-for-committing))
 ```shell
-git submit  # git diff --check --staged && git commit
+git submit  # git diff --check --staged && git commit --gpg-sign[=<keyid>]
 ```
 
 ### Submit all local commits to the remote repository
