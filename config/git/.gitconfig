@@ -85,7 +85,7 @@
 
 
 [gpg "ssh"]
-	allowedSignersFile = /home/timzwiebel/.ssh/allowed_signers
+	allowedSignersFile = ~/.ssh/allowed_signers
 
 
 [init]
@@ -119,6 +119,4 @@
 
 
 [user]
-	email = timzwiebel@gmail.com
-	name = Tim Zwiebel
-	signingKey = /home/timzwiebel/.ssh/id_ed25519.pub
+	signingKey = ~/.ssh/id_ed25519.pub

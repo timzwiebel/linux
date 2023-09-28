@@ -3,16 +3,14 @@
 
 
 # Install `~/.gitconfig`
-> **&#10071;&#65039;<!-- red exclamation mark emoji --> IMPORTANT:** The
-> `.gitconfig` file in this repository uses **my** name/email address. You
-> should use **your own** name/email address.
->
-> Therefore, it's probably not useful for anyone else to use this
-> `config/git/.gitconfig` file directly. However, it might be helpful as a
-> template for your own `.gitconfig` file.
+Add these lines to your `~/.gitconfig`:
+```ini
+[include]
+	path = <path_to_this_repository>/config/git/.gitconfig
 
-```shell
-ln -s "${TIMZWIEBEL_LINUX}/config/git/.gitconfig" ~/.gitconfig
+[user]
+	email = <your_email>
+	name = <your_name>
 ```
 
 > **&#8505;&#65039;<!-- information emoji --> TIP:** If you want to split your
@@ -62,14 +60,14 @@ SSH keys:
 	format = ssh
 
 [gpg "ssh"]
-	allowedSignersFile = /home/johndoe/.ssh/allowed_signers
+	allowedSignersFile = ~/.ssh/allowed_signers
 
 [tag]
 	forceSignAnnotated = true
 	gpgSign = true
 
 [user]
-	signingKey = /home/johndoe/.ssh/id_ed25519.pub
+	signingKey = ~/.ssh/id_ed25519.pub
 ```
 
 > **&#8505;&#65039;<!-- information emoji --> NOTE:** While `git` has supported
