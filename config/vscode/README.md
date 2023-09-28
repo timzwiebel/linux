@@ -3,9 +3,13 @@
 
 
 # Install
+If you want to use my `settings.json` file as-is:
 ```shell
 ln -s "${TIMZWIEBEL_LINUX}/config/vscode/settings.json" ~/.config/Code\ -\ OSS/User/settings.json
 ```
+
+Alternatively, you can simply copy/paste parts of my `settings.json` file into
+your `~/.config/Code\ -\ OSS/User/settings.json` file.
 
 
 # Links

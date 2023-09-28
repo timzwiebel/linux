@@ -4,8 +4,8 @@
 
 # Install (add `bin/` to `PATH`)
 These are custom executable scripts that are intended to be invoked directly by
-users and therefore should be added to `PATH` (see
-[Bash#Install](../config/bash/README.md#install)).
+users. If you want to make them callable from any directory, add this directory
+(`bin/`) to `PATH` (see [Bash#Install](../config/bash/README.md#install)).
 
 # Binaries
 - `print_args`: print the arguments passed to this command

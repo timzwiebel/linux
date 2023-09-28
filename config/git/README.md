@@ -3,7 +3,8 @@
 
 
 # Install `~/.gitconfig`
-Add these lines to your `~/.gitconfig`:
+If you want to use my `.gitconfig` file, add the following lines to your
+`~/.gitconfig`:
 ```ini
 [include]
 	path = <path_to_this_repository>/config/git/.gitconfig
@@ -12,6 +13,15 @@ Add these lines to your `~/.gitconfig`:
 	email = <your_email>
 	name = <your_name>
 ```
+
+For any settings duplicated in both `~/.gitconfig` and `config/git/.gitconfig`,
+the last value will take effect (except for the few multi-valued configuration
+values, in which case all values found across all configuration files will be
+used). Therefore, it's probably a good idea to put the `[include]` section at
+the top of your `~/.gitconfig`.
+
+Alternatively, you can simply copy/paste parts of my `.gitconfig` file into your
+`~/.gitconfig` file.
 
 > **&#8505;&#65039;<!-- information emoji --> TIP:** If you want to split your
 > Git config into multiple files and/or use parts of your Git config

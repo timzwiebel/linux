@@ -8,8 +8,8 @@
 > **your own** public SSH keys.
 >
 > Therefore, it's probably not very useful for anyone else to use any files from
-> this `config/ssh` directory. However, it might be helpful as a template for
-> your own SSH configuration.
+> this `config/ssh/` directory. However, some files might be helpful as
+> templates for your own SSH configuration.
 
 ```shell
 ln -s "${TIMZWIEBEL_LINUX}/config/ssh" ~/.ssh
