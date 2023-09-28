@@ -164,6 +164,10 @@ PS1="$(
 )"
 
 
+# less: disable history
+export LESSHISTFILE=/dev/null
+
+
 # Workaround for VS Code bug present in v1.81.1.
 # https://github.com/microsoft/vscode/issues/185324
 if [[ "${TERM_PROGRAM-}" == 'vscode' ]]; then
