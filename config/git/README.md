@@ -179,8 +179,7 @@ simplified by using aliases. Here is a list of the aliases in my `.gitconfig`:
 	bs = switch
 
 	# Check
-	check = diff --check --staged
-	check-all = "!f() { echo 'Staged:' && git diff --check && echo '(no errors)'; echo -e '\\nUnstaged:' && git diff --check --staged && echo '(no errors)'; } && f"
+	check = "!f() { printf 'Staged:\\n' && git diff --check --staged && printf '(no errors)\\n'; printf '\\nUnstaged:\\n' && git diff --check && printf '(no errors)\\n'; } && f"
 
 	# Check and Commit
 	submit = "!f() { git check && git commit \"$@\"; } && f"
