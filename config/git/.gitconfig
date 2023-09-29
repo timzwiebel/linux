@@ -26,13 +26,16 @@
 	discard-all = "!f() { git restore \"$(git root)\"; } && f"
 
 	# Graph
-	g = log --graph --abbrev-commit --pretty=oneline
-	g-all = g --all
+	g = gg --max-count=20
+	gg = log --graph --abbrev-commit --pretty=oneline
+	g-all = gg-all --max-count=20
+	gg-all = gg --all
 	g-full = log --graph --pretty=fuller --show-signature
 	g-full-all = g-full --all
 
 	# Log
-	l = log --abbrev-commit --pretty=oneline
+	l = ll --max-count=20
+	ll = log --abbrev-commit --pretty=oneline
 	l-full = log --pretty=fuller --show-signature
 
 	# Resolve

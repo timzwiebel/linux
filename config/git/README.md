@@ -195,13 +195,16 @@ simplified by using aliases. Here is a list of the aliases in my `.gitconfig`:
 	discard-all = "!f() { git restore \"$(git root)\"; } && f"
 
 	# Graph
-	g = log --graph --abbrev-commit --pretty=oneline
-	g-all = g --all
+	g = gg --max-count=20
+	gg = log --graph --abbrev-commit --pretty=oneline
+	g-all = gg-all --max-count=20
+	gg-all = gg --all
 	g-full = log --graph --pretty=fuller --show-signature
 	g-full-all = g-full --all
 
 	# Log
-	l = log --abbrev-commit --pretty=oneline
+	l = ll --max-count=20
+	ll = log --abbrev-commit --pretty=oneline
 	l-full = log --pretty=fuller --show-signature
 
 	# Resolve
@@ -432,7 +435,10 @@ git bd <branch>  # git branch --delete <branch>
 ### View the commit logs
 - View the **abbreviated** commit history of the current branch:
   ```shell
-  git l  # git log --abbrev-commit --pretty=oneline
+  git l  # git log --abbrev-commit --pretty=oneline --max-count=20
+  ```
+  ```shell
+  git ll  # git log --abbrev-commit --pretty=oneline
   ```
 - View the **full** commit history of the current branch:
   ```shell
@@ -442,7 +448,10 @@ git bd <branch>  # git branch --delete <branch>
 ### View the commit logs as a graph
 - View **abbreviated** commit history of the **current branch** as a graph:
   ```shell
-  git g  # git log --graph --abbrev-commit --pretty=oneline
+  git g  # git log --graph --abbrev-commit --pretty=oneline --max-count=20
+  ```
+  ```shell
+  git gg  # git log --graph --abbrev-commit --pretty=oneline
   ```
 - View the **full** commit history of the **current branch** as a graph:
   ```shell
@@ -450,7 +459,10 @@ git bd <branch>  # git branch --delete <branch>
   ```
 - View the **abbreviated** commit history of **all branches** as a graph:
   ```shell
-  git g-all  # git log --graph --abbrev-commit --pretty=oneline --all
+  git g-all  # git log --graph --abbrev-commit --pretty=oneline --all --max-count=20
+  ```
+  ```shell
+  git gg-all  # git log --graph --abbrev-commit --pretty=oneline --all
   ```
 - View the **full** commit history of **all branches** as a graph:
   ```shell
