@@ -1,5 +1,4 @@
 # Custom Binary/Script Libraries
-[TOC]
 
 
 # Install

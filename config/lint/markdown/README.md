@@ -1,5 +1,4 @@
 # Lint
-[TOC]
 
 # Install
 ```sh

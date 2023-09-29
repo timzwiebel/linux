@@ -1,5 +1,4 @@
 # Shell Libraries
-[TOC]
 
 
 # Libraries

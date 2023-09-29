@@ -1,5 +1,4 @@
 # Bash Configuration
-[TOC]
 
 
 # Install `~/.bashrc` (and add `bin/` to `PATH`)

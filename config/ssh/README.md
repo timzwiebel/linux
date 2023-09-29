@@ -1,5 +1,4 @@
 # SSH Configuration
-[TOC]
 
 
 # Install

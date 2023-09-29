@@ -1,7 +1,5 @@
 # Custom Binaries/Scripts
 
-[TOC]
-
 # Install (add `bin/` to `PATH`)
 These are custom executable scripts that are intended to be invoked directly by
 users. If you want to make them callable from any directory, add this directory
