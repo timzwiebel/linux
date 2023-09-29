@@ -181,8 +181,8 @@ simplified by using aliases. Here is a list of the aliases in my `.gitconfig`:
 	# Check
 	check = "!f() { printf 'Staged:\\n' && git diff --check --staged && printf '(no errors)\\n'; printf '\\nUnstaged:\\n' && git diff --check && printf '(no errors)\\n'; } && f"
 
-	# Check and Commit
-	submit = "!f() { git check && git commit \"$@\"; } && f"
+	# Commit (with a check before)
+	submit = "!f() { git diff --check --staged && git commit \"$@\"; } && f"
 
 	# Diff
 	d = difftool HEAD
@@ -194,7 +194,7 @@ simplified by using aliases. Here is a list of the aliases in my `.gitconfig`:
 	discard = restore
 	discard-all = "!f() { git restore \"$(git root)\"; } && f"
 
-	# Graph
+	# Graph (Log)
 	g = gg --max-count=20
 	gg = log --graph --abbrev-commit --pretty=oneline
 	g-all = gg-all --max-count=20
@@ -207,10 +207,10 @@ simplified by using aliases. Here is a list of the aliases in my `.gitconfig`:
 	ll = log --abbrev-commit --pretty=oneline
 	l-full = log --pretty=fuller --show-signature
 
-	# Resolve
+	# Resolve (Merge)
 	resolve = mergetool
 
-	# Remove
+	# Remove (opposite of `git add`)
 	rem = restore --staged
 	rem-all = reset --mixed
 
