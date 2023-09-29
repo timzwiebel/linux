@@ -212,7 +212,7 @@ simplified by using aliases. Here is a list of the aliases in my `.gitconfig`:
 
 	# Remove
 	rem = restore --staged
-	rem-all = reset
+	rem-all = reset --mixed
 
 	# Root
 	root = rev-parse --show-toplevel
@@ -492,7 +492,7 @@ git bd <branch>  # git branch --delete <branch>
   ```
 - Unstage **all files** for commit:
   ```shell
-  git rem-all  # git reset
+  git rem-all  # git reset --mixed
   ```
 
 ## Discarding changes

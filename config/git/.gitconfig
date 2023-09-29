@@ -43,7 +43,7 @@
 
 	# Remove
 	rem = restore --staged
-	rem-all = reset
+	rem-all = reset --mixed
 
 	# Root
 	root = rev-parse --show-toplevel
