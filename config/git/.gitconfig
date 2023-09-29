@@ -46,7 +46,7 @@
 	root = rev-parse --show-toplevel
 
 	# Status
-	s = status
+	s = "!f() { git status && printf '\\nStash:\\n' && stash=\"$(git stash list)\" && printf \"${stash:-(nothing stashed)}\\n\"; } && f"
 
 
 [commit]
