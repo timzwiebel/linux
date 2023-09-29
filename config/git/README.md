@@ -218,7 +218,7 @@ simplified by using aliases. Here is a list of the aliases in my `.gitconfig`:
 	root = rev-parse --show-toplevel
 
 	# Status
-	s = "!f() { git status && printf '\\nStash:\\n' && stash=\"$(git stash list)\" && printf \"${stash:-(nothing stashed)}\\n\"; } && f"
+	s = "!f() { git status && printf '\\nStash:\\n' && stash=\"$(git stash list --abbrev-commit --pretty=oneline --color=never)\" && printf \"${stash:-(nothing stashed)}\\n\"; } && f"
 ```
 
 ## Referencing commits
