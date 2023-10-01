@@ -15,6 +15,15 @@
     100
   ],
 
+  // Update opening and closing HTML/XML tags simultaneously.
+  "editor.linkedEditing": true,
+
+  // Save actions:
+  "editor.codeActionsOnSave": {
+    // Automatically orgainize imports.
+    "source.organizeImports": true
+  },
+
   // File settings:
   "files.enableTrash": false,
 
@@ -29,8 +38,15 @@
   "[markdown]": {
     "editor.wordWrap": "off"
   },
+  "markdown.preview.markEditorSelection": false,
 
   // Extension settings:
+  "local-history.exclude": [
+    "**/.emulator_data/**",
+    "**/.history/**",
+    "**/.svelte-kit/**",
+    "**/node_modules/**"
+  ],
   "svelte.enable-ts-plugin": true,
   "svelte.plugin.svelte.format.config.singleQuote": true,
 
