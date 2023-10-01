@@ -1,0 +1,12 @@
+// Place your key bindings in this file to override the defaults
+[
+  // Insert a literal tab character
+  {
+    "key": "ctrl+k tab",
+    "command": "type",
+    "args": {
+      "text": "\t"
+    },
+    "when": "editorTextFocus && !editorReadonly"
+  }
+]

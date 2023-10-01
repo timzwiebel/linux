@@ -2,13 +2,27 @@
 
 
 # Install
-If you want to use my `settings.json` file as-is:
-```shell
-ln -s "${TIMZWIEBEL_LINUX}/config/vscode/settings.json" ~/.config/Code\ -\ OSS/User/settings.json
-```
-
-Alternatively, you can simply copy/paste parts of my `settings.json` file into
-your `~/.config/Code\ -\ OSS/User/settings.json` file.
+- Settings:
+  - If you want to use my `settings.json` file as-is:
+    ```shell
+    ln -s "${TIMZWIEBEL_LINUX}/config/vscode/settings.json" ~/.config/Code\ -\ OSS/User/settings.json
+    ```
+  - Alternatively, you can simply copy/paste parts of my `settings.json` file
+    into your `~/.config/Code\ -\ OSS/User/settings.json` file.
+- Keybindings:
+  - If you want to use my `keybindings.json` file as-is:
+    ```shell
+    ln -s "${TIMZWIEBEL_LINUX}/config/vscode/keybindings.json" ~/.config/Code\ -\ OSS/User/keybindings.json
+    ```
+- Snippets:
+  - If you want to use one of my snippets files:
+    ```shell
+    ln -s "${TIMZWIEBEL_LINUX}/config/vscode/snippets/<snippet_file>" ~/.config/Code\ -\ OSS/User/snippets/<snippet_file>
+    ```
+  - If you want to use *all* of my snippets files:
+    ```shell
+    ln -s "${TIMZWIEBEL_LINUX}/config/vscode/snippets" ~/.config/Code\ -\ OSS/User/snippets
+    ```
 
 
 # Links
@@ -24,6 +38,8 @@ your `~/.config/Code\ -\ OSS/User/settings.json` file.
     with the official Microsoft-branded release)
   - [Open VSX Registry](https://open-vsx.org): a vendor-neutral open-source
     alternative to the Visual Studio Marketplace
+- [Snippets Documentation](https://code.visualstudio.com/docs/editor/userdefinedsnippets):
+  how to make and use snippets in Visual Studio Code
 
 
 # Extensions

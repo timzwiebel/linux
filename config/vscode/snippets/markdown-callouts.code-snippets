@@ -1,0 +1,34 @@
+{
+  "IMPORTANT Callout": {
+    "prefix": "important-callout",
+    "description": "IMPORTANT Callout",
+    "scope": "markdown",
+    "body": [
+      "**&#10071;&#65039;<!-- red exclamation mark emoji --> IMPORTANT:** $0",
+    ],
+  },
+  "NOTE Callout": {
+    "prefix": "note-callout",
+    "description": "NOTE Callout",
+    "scope": "markdown",
+    "body": [
+      "**&#8505;&#65039;<!-- information emoji --> NOTE:** $0",
+    ],
+  },
+  "TIP Callout": {
+    "prefix": "tip-callout",
+    "description": "TIP Callout",
+    "scope": "markdown",
+    "body": [
+      "> **&#8505;&#65039;<!-- information emoji --> TIP:** $0",
+    ],
+  },
+  "WARNING Callout": {
+    "prefix": "warning-callout",
+    "description": "WARNING Callout",
+    "scope": "markdown",
+    "body": [
+      "> **&#9888;&#65039;<!-- warning emoji --> WARNING:** $0",
+    ],
+  },
+}
