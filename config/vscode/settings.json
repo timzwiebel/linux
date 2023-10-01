@@ -15,20 +15,20 @@
     100
   ],
 
-  // Word wrap settings:
-  "[markdown]": {
-    "editor.wordWrap": "off"
-  },
-
-  // Quote settings:
-  "javascript.preferences.quoteStyle": "single",
-  "typescript.preferences.quoteStyle": "single",
-
   // File settings:
   "files.enableTrash": false,
 
   // Terminal settings:
   "terminal.integrated.allowChords": false,
+
+  // JavaScript/TypeScript settings:
+  "javascript.preferences.quoteStyle": "single",
+  "typescript.preferences.quoteStyle": "single",
+
+  // Markdown settings:
+  "[markdown]": {
+    "editor.wordWrap": "off"
+  },
 
   // Extension settings:
   "svelte.enable-ts-plugin": true,
