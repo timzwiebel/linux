@@ -26,6 +26,10 @@
 
   // File settings:
   "files.enableTrash": false,
+  "files.exclude": {
+    "**/.svelte-kit": true,
+    "**/node_modules": true
+  },
 
   // Terminal settings:
   "terminal.integrated.allowChords": false,
