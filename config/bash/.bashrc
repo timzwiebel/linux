@@ -22,16 +22,16 @@ alias rm='rm --interactive'
 alias tar='tar --interactive'
 alias xargs='xargs --interactive'
 
-# ls:
-alias ls='ls --color=auto'
-alias ll='ls --all --format=long --classify=auto'
-
 # find:
 # See also: bin/rfind
 
 # grep:
 alias grep='grep --color=auto'
 # See also: bin/rgrep
+
+# ls:
+alias ls='ls --color=auto'
+alias ll='ls --all --format=long --classify=auto'
 
 # pacman: https://wiki.archlinux.org/title/pacman#Usage
 alias pacman='pacman --color=auto'
