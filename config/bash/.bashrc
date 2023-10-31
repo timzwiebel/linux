@@ -98,6 +98,7 @@ PS1="$(
   source "${TIMZWIEBEL_LINUX}/lib/shell/control_sequence.sh"
   source "${TIMZWIEBEL_LINUX}/lib/shell/bash_prompt.sh"
 
+  # Use a function to allow the use of `local` variables.
   make_prompt() {
     local -r jobs_text="jobs: ${BASH_PROMPT_JOB_COUNT}"
     local -r prompt=(
@@ -159,7 +160,6 @@ PS1="$(
 
     printf '%s' "${prompt[@]}"
   }
-
   make_prompt
 )"
 
