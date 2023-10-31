@@ -1,7 +1,7 @@
 # Linux Repository
 Configuration files and scripts for working with Linux:
 - [`bin`](bin/README.md): executable scripts
-- `config`: configuration files
+- [`config`](config/README.md): configuration files
   - [`bash`](config/bash/README.md): Bash
   - [`git`](config/git/README.md): Git
   - [`lint`](config/lint/README.md): Lint
