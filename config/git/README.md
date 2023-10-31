@@ -569,7 +569,7 @@ section of the Pro Git book, available for free on the official Git website.
 git submit  # git diff --check --staged && difftool --dir-diff --staged && git commit --gpg-sign[=<keyid>]
 ```
 
-### Submit all local commits to the remote repository
+### Push all local commits to the remote repository
 ```shell
 git push
 ```
