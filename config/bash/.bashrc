@@ -8,7 +8,7 @@ set -o pipefail
 
 # sudo:
 # https://wiki.archlinux.org/title/sudo#Reduce_the_number_of_times_you_have_to_type_a_password
-alias sudo='sudo --validate && sudo '
+alias sudo='sudo --validate && sudo --preserve-env=TIMZWIEBEL_LINUX '
 
 # Make commands interactive so they confirm operations that might be dangerous
 # (e.g., prompt before overwrite).
