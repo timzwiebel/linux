@@ -180,8 +180,8 @@ simplified by using aliases. Here is a list of the aliases in my `.gitconfig`:
 	# Check
 	check = "!f() { printf 'Staged:\\n' && git diff --check --staged && printf '(no errors)\\n'; printf '\\nUnstaged:\\n' && git diff --check && printf '(no errors)\\n'; } && f"
 
-	# Commit (with a check before)
-	submit = "!f() { git diff --check --staged && git commit \"$@\"; } && f"
+	# Commit (with a check and a diff beforehand)
+	submit = "!f() { git diff --check --staged && git d-staged && git commit \"$@\"; } && f"
 
 	# Diff
 	d = difftool HEAD
@@ -566,7 +566,7 @@ section of the Pro Git book, available for free on the official Git website.
 > `git diff --check [--staged]` before committing (see
 > [Tips](#tips-for-committing))
 ```shell
-git submit  # git diff --check --staged && git commit --gpg-sign[=<keyid>]
+git submit  # git diff --check --staged && difftool --dir-diff --staged && git commit --gpg-sign[=<keyid>]
 ```
 
 ### Submit all local commits to the remote repository

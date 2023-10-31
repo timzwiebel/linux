@@ -12,8 +12,8 @@
 	# Check
 	check = "!f() { printf 'Staged:\\n' && git diff --check --staged && printf '(no errors)\\n'; printf '\\nUnstaged:\\n' && git diff --check && printf '(no errors)\\n'; } && f"
 
-	# Commit (with a check before)
-	submit = "!f() { git diff --check --staged && git commit \"$@\"; } && f"
+	# Commit (with a check and a diff beforehand)
+	submit = "!f() { git diff --check --staged && git d-staged && git commit \"$@\"; } && f"
 
 	# Diff
 	d = difftool HEAD
