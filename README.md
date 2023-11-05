@@ -9,3 +9,5 @@ Configuration files and scripts for working with Linux:
   - [`vscode`](config/vscode/README.md): Virtual Studio Code
 - [`lib`](lib/README.md): scripting libraries
   - [`shell`](lib/shell/README.md): Shell libraries
+- [`linux`](linux/README.md): Linux installation
+  - [`arch`](linux/arch/README.md): Arch Linux installation
