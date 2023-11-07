@@ -4,7 +4,7 @@
     "description": "IMPORTANT Callout",
     "scope": "markdown",
     "body": [
-      "**&#10071;&#65039;<!-- red exclamation mark emoji --> IMPORTANT:** $0",
+      "> **&#10071;&#65039;<!-- red exclamation mark emoji --> IMPORTANT:** $0",
     ],
   },
   "NOTE Callout": {
@@ -12,7 +12,7 @@
     "description": "NOTE Callout",
     "scope": "markdown",
     "body": [
-      "**&#8505;&#65039;<!-- information emoji --> NOTE:** $0",
+      "> **&#8505;&#65039;<!-- information emoji --> NOTE:** $0",
     ],
   },
   "TIP Callout": {
