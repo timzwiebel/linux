@@ -86,7 +86,7 @@ _git_branch_name() {
       :)"
   if [[ -z "${branch}" ]]; then
     branch="$( \
-        command -v git > /dev/null && \
+        command -v git >/dev/null && \
         git branch --no-color --show-current 2>/dev/null || \
         :)"
   fi
