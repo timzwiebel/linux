@@ -56,6 +56,7 @@ alias pacman-update='pacman --sync --refresh --sysupgrade'
 #   - Print a newline between each prompt for visual spacing
 #   - Print the exit code of the previous command
 #   - Print the approximate time that the previous command finished
+#   - Print the kernel name & release
 #   - Print the shell name & version
 #   - Print the number of jobs managed by the shell
 #   - Print the user, hostname, and working directory
@@ -121,11 +122,16 @@ PS1="$(
       '[${ec}]'
       '"; fi)'
       "${BASH_PROMPT_CS_RESET}"
-      # Approximate time that the previous command finished, and shell name &
-      # version (gray)
+      # Additional information (gray)
       "$(bash_prompt::sgr "${SGR_ATTR_COLOR_GRAY}")"
-      " | ${BASH_PROMPT_TIME} | ${BASH_PROMPT_SHELL_AND_VERSION} | "
+      # Approximate time that the previous command finished
+      " | ${BASH_PROMPT_TIME}"
+      # Kernel name & release
+      ' | $(uname -s -r)'
+      # Shell name & version
+      " | ${BASH_PROMPT_SHELL_AND_VERSION}"
       # The number of jobs managed by the shell (gray if 0, otherwise default)
+      ' | '
       '$(if (( '
       "${BASH_PROMPT_JOB_COUNT}"
       ' == 0 )); then printf "%s" "'
