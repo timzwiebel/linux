@@ -59,6 +59,11 @@
     [Open VSX](https://open-vsx.org/extension/rangav/vscode-thunder-client)): a
     lightweight Rest API Client for testing/debugging APIs
 - Language-specific:
+  - **Python**
+    ([Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-python.python),
+    [Open VSX](https://open-vsx.org/extension/ms-python/python)): IntelliSense
+    (Pylance), linting, debugging, code navigation, code formatting,
+    refactoring, variable explorer, test explorer, and more
   - **Svelte for VS Code**
     ([Marketplace](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode),
     [Open VSX](https://open-vsx.org/extension/svelte/svelte-vscode)): provides
