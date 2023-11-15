@@ -1,4 +1,4 @@
-# Linux Installation
+# Linux Distributions
 
 # Distributions
 - [Arch Linux](arch/README.md)

@@ -7,7 +7,7 @@ Configuration files and scripts for working with Linux:
   - [`lint`](config/lint/README.md): Lint
   - [`ssh`](config/ssh/README.md): SSH
   - [`vscode`](config/vscode/README.md): Virtual Studio Code
+- [`distros`](distros/README.md): Linux distributions
+  - [`arch`](distros/arch/README.md): Arch Linux installation
 - [`lib`](lib/README.md): scripting libraries
   - [`shell`](lib/shell/README.md): Shell libraries
-- [`linux`](linux/README.md): Linux installation
-  - [`arch`](linux/arch/README.md): Arch Linux installation
