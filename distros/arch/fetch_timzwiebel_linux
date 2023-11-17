@@ -1,0 +1,95 @@
+#!/usr/bin/python
+#
+# Download files from https://github.com/timzwiebel/linux for an installation of
+# Arch Linux.
+#
+# NOTE(timzwiebel): This script assumes it's being run on Linux.
+
+import os
+from io import BytesIO
+from pathlib import Path
+from zipfile import ZipFile
+
+import requests
+
+_TIMZWIEBEL_LINUX_URL = (
+    'https://github.com/timzwiebel/linux/archive/refs/heads/main.zip')
+_TOP_LEVEL_DIRECTORY = 'linux-main/'  # The trailing `/` is important
+_OUTPUT_DIRECTORY = '/tmp/timzwiebel_linux'
+
+
+def check_output_directory_does_not_exist() -> None:
+  """Checks that _OUTPUT_DIRECTORY exists."""
+  if Path(_OUTPUT_DIRECTORY).exists():
+    raise FileExistsError(f'{_OUTPUT_DIRECTORY} already exists')
+
+
+def fetch_timzwiebel_linux() -> requests.Response:
+  """Fetches _TIMZWIEBEL_LINUX_URL."""
+  response = requests.get(_TIMZWIEBEL_LINUX_URL)
+  response.raise_for_status()
+  return response
+
+
+def get_umask() -> int:
+  """Returns the current umask."""
+  # The only way to get the current umask is to call umask with an arbitrary
+  # value and save the return value, then call it again to reset the umask to
+  # its original value. Apparently that's just how the umask system call works.
+  # We'll use 0o077 as the arbitrary value since it should be a safe value. (For
+  # what it's worth, Bash uses 0o022.)
+  # See also:
+  # - https://wiki.archlinux.org/title/Umask#See_also (which links to...)
+  #   - https://blogs.gentoo.org/mgorny/2011/10/18/027-umask-a-compromise-between-security-and-simplicity
+  # - https://git.savannah.gnu.org/cgit/bash.git/tree/builtins/umask.def
+  umask = os.umask(0o077)
+  os.umask(umask)
+  return umask
+
+
+def extract_files(zipped_bytes: bytes) -> None:
+  """Extracts the files from zipped_bytes to _OUTPUT_DIRECTORY.
+
+  Expects zipped_bytes to contain a top level directory matching
+  _TOP_LEVEL_DIRECTORY, which will be removed.
+
+  Args:
+    zipped_bytes: the bytes of the zip file containing the files
+  """
+  with ZipFile(BytesIO(zipped_bytes)) as repository_archive:
+    info_list = repository_archive.infolist()
+    if info_list[0].is_dir() and info_list[0].filename != _TOP_LEVEL_DIRECTORY:
+      raise ValueError(
+          f'Zip did not contain top level directory {_TOP_LEVEL_DIRECTORY}')
+    Path(_OUTPUT_DIRECTORY).mkdir(parents=True)
+    symlink_path = Path(_OUTPUT_DIRECTORY).joinpath(_TOP_LEVEL_DIRECTORY)
+    symlink_path.symlink_to(_OUTPUT_DIRECTORY, target_is_directory=True)
+    try:
+      repository_archive.extractall(_OUTPUT_DIRECTORY)
+      # Work around a long-standing bug where ZipFile.extractall doesn't
+      # preserve file permissions:
+      # https://github.com/python/cpython/issues/59999
+      for entry in info_list:
+        # ZipInfo.external_attr doesn't seem to be documented (see the GitHub
+        # issue below). However, the source code gives some clues.
+        # - https://github.com/python/cpython/blob/a6465605c1417792ec04ced88340cdf104a402b6/Lib/zipfile/__init__.py#L442-L445
+        # - https://github.com/python/cpython/issues/62462
+        new_permissions = (entry.external_attr >> 16) & ~get_umask()
+        if new_permissions > 0:
+          path = Path(_OUTPUT_DIRECTORY).joinpath(entry.filename)
+          path.chmod(new_permissions)
+    finally:
+      symlink_path.unlink()
+
+
+def main():
+  """The main function."""
+  check_output_directory_does_not_exist()
+  print(f'Fetching {_TIMZWIEBEL_LINUX_URL}...')
+  response = fetch_timzwiebel_linux()
+  print('Extracting files...')
+  extract_files(response.content)
+  print('Done.')
+
+
+main()
