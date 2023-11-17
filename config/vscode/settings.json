@@ -15,6 +15,9 @@
     100
   ],
 
+  // Never auto-close quotes because it leads to typos.
+  "editor.autoClosingQuotes": "never",
+
   // Update opening and closing HTML/XML tags simultaneously.
   "editor.linkedEditing": true,
 
