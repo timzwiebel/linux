@@ -2,4 +2,4 @@
 
 
 # Libraries
-- `commands.py`: for scripts that run (Bash) shell commands
+- [`commands.py`](commands.py): for scripts that run (Bash) shell commands

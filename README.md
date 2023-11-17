@@ -1,14 +1,14 @@
 # Linux Repository
 Configuration files and scripts for working with Linux:
-- [`bin`](bin/README.md): executable scripts
-- [`config`](config/README.md): configuration files
-  - [`bash`](config/bash/README.md): Bash
-  - [`git`](config/git/README.md): Git
-  - [`lint`](config/lint/README.md): Lint
-  - [`ssh`](config/ssh/README.md): SSH
-  - [`vscode`](config/vscode/README.md): Virtual Studio Code
-- [`distros`](distros/README.md): Linux distributions
-  - [`arch`](distros/arch/README.md): Arch Linux installation
-- [`lib`](lib/README.md): scripting libraries
-  - [`python`](lib/python/README.md): Python libraries
-  - [`shell`](lib/shell/README.md): Shell libraries
+- [`bin`](bin/): executable scripts
+- [`config`](config/): configuration files
+  - [`bash`](config/bash/): Bash
+  - [`git`](config/git/): Git
+  - [`lint`](config/lint/): Lint
+  - [`ssh`](config/ssh/): SSH
+  - [`vscode`](config/vscode/): Virtual Studio Code
+- [`distros`](distros/): Linux distributions
+  - [`arch`](distros/arch/): Arch Linux installation
+- [`lib`](lib/): scripting libraries
+  - [`python`](lib/python/): Python libraries
+  - [`shell`](lib/shell/): Shell libraries

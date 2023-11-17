@@ -9,5 +9,5 @@ necessary.
 
 
 # Libraries
-- [Python](python/README.md)
-- [Shell](shell/README.md)
+- [Python](python/)
+- [Shell](shell/)
