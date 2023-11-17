@@ -175,6 +175,14 @@ PS1="$(
 export LESSHISTFILE=/dev/null
 
 
+# Python:
+# See https://docs.python.org/3/using/cmdline.html#environment-variables
+# Add TIMZWIEBEL_LINUX to PYTHON_PATH
+export PYTHONPATH="${PYTHONPATH:+${PYTHONPATH}:}${TIMZWIEBEL_LINUX}/lib/python"
+# Write .pyc files to /tmp:
+export PYTHONPYCACHEPREFIX='/tmp/pycache'
+
+
 # Workaround for VS Code bug present in v1.81.1.
 # https://github.com/microsoft/vscode/issues/185324
 if [[ "${TERM_PROGRAM-}" == 'vscode' ]]; then
