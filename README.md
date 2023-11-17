@@ -10,4 +10,5 @@ Configuration files and scripts for working with Linux:
 - [`distros`](distros/README.md): Linux distributions
   - [`arch`](distros/arch/README.md): Arch Linux installation
 - [`lib`](lib/README.md): scripting libraries
+  - [`python`](lib/python/README.md): Python libraries
   - [`shell`](lib/shell/README.md): Shell libraries
