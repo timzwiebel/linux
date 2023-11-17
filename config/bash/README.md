@@ -3,7 +3,7 @@
 
 # Install `~/.bashrc` (and add `bin/` to `PATH`)
 If you want to use my [custom binaries/scripts](../../bin/README.md) and/or my
-``.bashrc` file, add the following lines somewhere in your `~/.bashrc`:
+`.bashrc` file, add the following lines somewhere in your `~/.bashrc`:
 ```shell
 export TIMZWIEBEL_LINUX="<path_to_this_repository>"  # e.g., "${HOME}/linux"
 

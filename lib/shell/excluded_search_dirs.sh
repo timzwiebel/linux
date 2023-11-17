@@ -1,4 +1,4 @@
-# Library for defining `EXCLUDED_SEARCH_DIRS``, an array of directories to be
+# Library for defining `EXCLUDED_SEARCH_DIRS`, an array of directories to be
 # excluded while searching.
 #
 # Requires: none
