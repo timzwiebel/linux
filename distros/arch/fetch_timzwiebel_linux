@@ -75,7 +75,7 @@ def extract_files(zipped_bytes: bytes) -> None:
         # issue below). However, the source code gives some clues.
         # - https://github.com/python/cpython/blob/a6465605c1417792ec04ced88340cdf104a402b6/Lib/zipfile/__init__.py#L442-L445
         # - https://github.com/python/cpython/issues/62462
-        new_permissions = (entry.external_attr >> 16) & ~get_umask()
+        new_permissions = 0o777 & ~get_umask() & (entry.external_attr >> 16)
         if new_permissions > 0:
           path = Path(_OUTPUT_DIRECTORY).joinpath(entry.filename)
           path.chmod(new_permissions)
