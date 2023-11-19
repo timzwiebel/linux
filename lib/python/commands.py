@@ -3,11 +3,9 @@
 See commands_example for an example demonstrating typical usage.
 """
 
-import argparse
 import subprocess
-import sys
 from abc import ABC, abstractmethod
-from argparse import ArgumentParser
+from argparse import ArgumentParser, Namespace
 
 
 class BaseCommandSequenceStep(ABC):
@@ -56,7 +54,7 @@ class BaseCommandSequenceStep(ABC):
     pass
 
   @abstractmethod
-  def _run(self, args: argparse.Namespace) -> None:
+  def _run(self, args: Namespace) -> None:
     """The implementation of the step.
 
     Subclasses must implement this method.
@@ -76,7 +74,7 @@ class BaseCommandSequenceStep(ABC):
     """
     raise NotImplementedError()
 
-  def run(self, args: argparse.Namespace) -> None:
+  def run(self, args: Namespace) -> None:
     """Runs the step.
 
     Args:

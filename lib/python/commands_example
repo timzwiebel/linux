@@ -2,14 +2,14 @@
 #
 # An example script demonstrating typical usage of commands.py
 
-import argparse
+from argparse import ArgumentParser, Namespace
 
 from commands import BaseCommandSequenceStep, CommandSequenceProgram
 
 
 class HelloWorldStep(BaseCommandSequenceStep):
   # TODO(timzwiebel): Add @override when it becomes available in Python 3.12
-  def _run(self, args: argparse.Namespace) -> None:
+  def _run(self, args: Namespace) -> None:
     self._run_command('Print "Hello"', 'echo \'Hello\'')
     self._run_command('Print "World!"', 'echo \'World!\'')
 
@@ -19,7 +19,7 @@ class PrintWelcomeMessageStep(BaseCommandSequenceStep):
     super().__init__('1')
 
   # TODO(timzwiebel): Add @override when it becomes available in Python 3.12
-  def _add_args(self, argument_parser: argparse.ArgumentParser):
+  def _add_args(self, argument_parser: ArgumentParser) -> None:
     argument_parser.add_argument(
         '-n',
         '--name',
@@ -27,7 +27,7 @@ class PrintWelcomeMessageStep(BaseCommandSequenceStep):
         help=f'your name (required)')
 
   # TODO(timzwiebel): Add @override when it becomes available in Python 3.12
-  def _run(self, args: argparse.Namespace) -> None:
+  def _run(self, args: Namespace) -> None:
     self._run_command(
         'Print a welcome message',
         f'echo \'Welcome {args.name}!\'')
@@ -38,7 +38,7 @@ class PrintValuesStep(BaseCommandSequenceStep):
     super().__init__('2', 'Print the values')
 
   # TODO(timzwiebel): Add @override when it becomes available in Python 3.12
-  def _add_args(self, argument_parser: argparse.ArgumentParser):
+  def _add_args(self, argument_parser: ArgumentParser) -> None:
     default_string_value = 'foo'
     argument_parser.add_argument(
         '--string-value',
@@ -58,7 +58,7 @@ class PrintValuesStep(BaseCommandSequenceStep):
         help=f'set the boolean flag')
 
   # TODO(timzwiebel): Add @override when it becomes available in Python 3.12
-  def _run(self, args: argparse.Namespace) -> None:
+  def _run(self, args: Namespace) -> None:
     self._run_command(
         'Print the string value',
         f'echo \'The string value is "{args.string_value}"\'')
@@ -80,7 +80,7 @@ class PrintGoodbyeMessageStep(BaseCommandSequenceStep):
     super().__init__(step_description='Say goodbye')
 
   # TODO(timzwiebel): Add @override when it becomes available in Python 3.12
-  def _run(self, args: argparse.Namespace) -> None:
+  def _run(self, args: Namespace) -> None:
     self._run_command('Print a goodbye message', 'echo \'Bye!\'')
 
 
