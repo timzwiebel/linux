@@ -3,7 +3,7 @@
 # Download files from https://github.com/timzwiebel/linux for an installation of
 # Arch Linux.
 #
-# NOTE(timzwiebel): This script assumes it's being run on Linux.
+# This script assumes it's being run on Linux.
 
 import os
 from io import BytesIO

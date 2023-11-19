@@ -117,10 +117,10 @@ class BaseCommandSequenceStep(ABC):
       return
     input('Press [Enter] to continue or [Ctrl+C] to abort...')
     print('')  # Empty line
-    # NOTE(timzwiebel): The following merges stdout and stderr. The alternative
-    # is to have separate threads reading from stdout and stderr (which seems
-    # overly complex), or to wait until the subprocess finishes (which isn't
-    # ideal for long-running commands).
+    # The following merges stdout and stderr. The alternative is to have
+    # separate threads reading from stdout and stderr (which seems overly
+    # complex), or to wait until the subprocess finishes (which isn't ideal for
+    # long-running commands).
     has_output = False
     proc = subprocess.Popen(
         [
