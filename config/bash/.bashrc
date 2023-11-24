@@ -18,7 +18,7 @@ alias killall='killall --interactive'
 alias ln='ln --interactive'
 alias mv='mv --interactive'
 alias rename='rename --interactive'
-alias rm='rm --interactive'
+alias rm='rm --interactive=once'
 alias tar='tar --interactive'
 alias xargs='xargs --interactive'
 
