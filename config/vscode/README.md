@@ -44,6 +44,10 @@
 
 # Extensions
 - General:
+  - **Code Spell Checker**
+    ([Marketplace](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker),
+    [Open VSX](https://open-vsx.org/extension/streetsidesoftware/code-spell-checker)):
+    a basic spell checker that works well with code and documents
   - **Rewrap**
     ([Marketplace](https://marketplace.visualstudio.com/items?itemName=stkb.rewrap),
     [Open VSX](https://open-vsx.org/extension/stkb/rewrap)): press `Alt+Q` to
