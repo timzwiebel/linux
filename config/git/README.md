@@ -539,8 +539,8 @@ section of the Pro Git book, available for free on the official Git website.
 
 **TL;DR:**
 - Run `git diff --check [--staged]` before committing
-- Commit messages should look like this (mostly copied from the book, which
-  [copied from Tim Pope](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)):
+- Commit messages should look like this (mostly
+  [copied from the book](https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project#_commit_guidelines)):
   ```
   Capitalized, short (50 chars or less) summary
 
