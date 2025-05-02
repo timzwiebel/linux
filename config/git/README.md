@@ -826,4 +826,4 @@ status`, `git pull`, `git commit`, `git push`, etc.).
 > **&#8505;&#65039;<!-- information emoji --> TIP:** Many `git` commands can be
 > made recursive with the `--recurse-submodules` flag. The default behavior can
 > also be specified in your `.gitconfig` using either the
-> `<command>.recruseSubmodules` or `submodule.recurse` options.
+> `<command>.recurseSubmodules` or `submodule.recurse` options.
