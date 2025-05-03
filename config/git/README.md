@@ -191,7 +191,7 @@ simplified by using aliases. Here is a list of the aliases in my `.gitconfig`:
 
 	# Discard Changes
 	discard = restore
-	discard-all = "!f() { git restore \"$(git root)\"; } && f"
+	discard-all = restore :/
 
 	# Graph (Log)
 	g = gg --max-count=20
@@ -501,7 +501,7 @@ git bd <branch>  # git branch --delete <branch>
   ```
 - Discard all changes (to the current directory):
   ```shell
-  git discard-all  # git restore "$(git rev-parse --show-toplevel)"
+  git discard-all  # git restore :/
   ```
 
 ## Diffing changes

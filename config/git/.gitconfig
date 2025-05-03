@@ -23,7 +23,7 @@
 
 	# Discard Changes
 	discard = restore
-	discard-all = "!f() { git restore \"$(git root)\"; } && f"
+	discard-all = restore :/
 
 	# Graph (Log)
 	g = gg --max-count=20
