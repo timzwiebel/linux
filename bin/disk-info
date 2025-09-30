@@ -64,9 +64,9 @@ def _print_partition_info(data: dict[Any], indentation: int) -> None:
   _print_info(
       [
         ('NAME', f'{data['name']}'),
-        ('PARTTYPENAME', f'{data['parttypename']}'),
         ('PARTLABEL', f'{data['partlabel']}'),
         ('PARTUUID', f'{data['partuuid']}'),
+        ('PARTTYPENAME', f'{data['parttypename']}'),
         ('SIZE', f'{data['size']}'),
       ],
       indentation + _INDENTATION)
