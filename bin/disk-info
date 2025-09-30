@@ -11,6 +11,9 @@ from typing import Any, TypeVar
 _T = TypeVar('_T')
 
 
+_INDENTATION = 2
+
+
 def _strip_json_strings(obj: _T) -> _T:
   if isinstance(obj, dict):
     return {
@@ -24,15 +27,67 @@ def _strip_json_strings(obj: _T) -> _T:
     return obj
 
 
-def _print_line(line: str, indentation: int = 0) -> None:
+def _print_line(line: str, indentation: int) -> None:
   print((indentation * ' ') + line)
 
 
-def _print_columns(output: list[tuple[str, str]], indentation: int = 0) -> None:
-  width_0 = max([len(line[0]) for line in output])
-  width_1 = max([len(line[1]) for line in output])
-  for line in output:
-    print((indentation * ' ') + f'{line[0]:<{width_0}}: {line[1]:<{width_1}}')
+def _print_info(info: list[tuple[str, str]], indentation: int) -> None:
+  width = max([len(line[0]) for line in info])
+  for line in info:
+    print((indentation * ' ') + f'{line[0]:{width}}: {line[1]}')
+
+
+def _print_device_info(data: dict[Any], indentation: int) -> None:
+  _print_line('Device:', indentation)
+  _print_info(
+      [
+        ('NAME', f'{data['name']}'),
+        ('TRAN / TYPE', f'{data['tran']} / {data['type']}'),
+        (
+          'VENDOR / MODEL / SERIAL',
+          f'{data['vendor']} / {data['model']} / {data['serial']}',
+        ),
+        ('STATE', f'{data['state']}'),
+        ('RM (removable)', f'{data['rm']}'),
+        ('RO (read-only)', f'{data['ro']}'),
+        ('MODE OWNER GROUP', f'{data['mode']} {data['owner']} {data['group']}'),
+        ('SIZE', f'{data['size']}'),
+        ('PTUUID', f'{data['ptuuid']}'),
+        ('PTTYPE', f'{data['pttype']}'),
+      ],
+      indentation + _INDENTATION)
+  _print_filesystem_info(data, indentation + _INDENTATION)
+
+
+def _print_partition_info(data: dict[Any], indentation: int) -> None:
+  _print_line('Partition:', indentation)
+  _print_info(
+      [
+        ('NAME', f'{data['name']}'),
+        ('PARTTYPENAME', f'{data['parttypename']}'),
+        ('PARTLABEL', f'{data['partlabel']}'),
+        ('PARTUUID', f'{data['partuuid']}'),
+        ('SIZE', f'{data['size']}'),
+      ],
+      indentation + _INDENTATION)
+  _print_filesystem_info(data, indentation + _INDENTATION)
+
+
+def _print_filesystem_info(data: dict[Any], indentation: int) -> None:
+  if data['fstype'] is None:
+    return
+  _print_line('Filesystem:', indentation)
+  _print_info(
+      [
+        ('LABEL', f'{data['label']}'),
+        ('UUID', f'{data['uuid']}'),
+        ('FSTYPE', f'{data['fstype']}'),
+        ('FSAVAIL', f'{data['fsavail']}'),
+        ('FSUSED', f'{data['fsused']}'),
+        ('FSSIZE', f'{data['fssize']}'),
+        ('FSUSE%', f'{data['fsuse%']}'),
+      ],
+      indentation + _INDENTATION)
 
 
 def main(args: argparse.Namespace) -> None:
@@ -44,44 +99,10 @@ def main(args: argparse.Namespace) -> None:
       check=True)
   lsblk_data = _strip_json_strings(json.loads(completed_process.stdout))
   for device in lsblk_data['blockdevices']:
-    _print_line('Device:', indentation=0)
-    output = []
-    output.append(('NAME', f'{device['name']}'))
-    output.append(('TRAN / TYPE', f'{device['tran']} / {device['type']}'))
-    output.append(('VENDOR / MODEL', f'{device['vendor']} / {device['model']}'))
-    output.append(('SERIAL', f'{device['serial']}'))
-    output.append(('STATE', f'{device['state']}'))
-    output.append(('RM (removable)', f'{device['rm']}'))
-    output.append(('RO (read-only)', f'{device['ro']}'))
-    output.append((
-      'OWNER GROUP MODE',
-      f'{device['owner']} {device['group']} {device['mode']}',
-    ))
-    output.append(('SIZE', f'{device['size']}'))
-    output.append(('PTUUID', f'{device['ptuuid']}'))
-    output.append(('PTTYPE', f'{device['pttype']}'))
-    _print_columns(output, indentation=2)
+    _print_device_info(device, indentation=0)
     if 'children' in device:
       for partition in device['children']:
-        _print_line('Partition:', indentation=2)
-        output = []
-        output.append(('NAME', f'{partition['name']}'))
-        output.append(('PARTTYPENAME', f'{partition['parttypename']}'))
-        output.append(('PARTLABEL', f'{partition['partlabel']}'))
-        output.append(('PARTUUID', f'{partition['partuuid']}'))
-        output.append(('SIZE', f'{partition['size']}'))
-        output.append(('LABEL', f'{partition['label']}'))
-        output.append(('UUID', f'{partition['uuid']}'))
-        output.append(('FSTYPE', f'{partition['fstype']}'))
-        output.append((
-          'OWNER GROUP MODE',
-          f'{partition['owner']} {partition['group']} {partition['mode']}',
-        ))
-        output.append(('FSAVAIL', f'{partition['fsavail']}'))
-        output.append(('FSUSED', f'{partition['fsused']}'))
-        output.append(('FSSIZE', f'{partition['fssize']}'))
-        output.append(('FSUSE%', f'{partition['fsuse%']}'))
-        _print_columns(output, indentation=4)
+        _print_partition_info(partition, indentation=_INDENTATION)
 
 
 if __name__ == '__main__':
